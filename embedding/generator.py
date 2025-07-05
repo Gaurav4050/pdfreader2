@@ -20,7 +20,7 @@ class EmbeddingGenerator:
 
         self.tokenizer = AutoTokenizer.from_pretrained("google-bert/bert-base-cased")
 
-    def chunk_text_by_tokens(self, text, chunk_size=800, overlap=100):
+    def chunk_text_by_tokens(self, text, chunk_size=512, overlap=100):
         tokens = self.tokenizer.encode(text)
         chunks = []
 
