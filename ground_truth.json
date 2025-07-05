@@ -1,0 +1,60 @@
+[
+  {
+    "query": "artificial intelligence and machine learning",
+    "relevant_file_ids": [
+      "12bvQvTTVZnOg3SuKAi6lIzLR6jL11nAA",
+      "1cE1dwhFOD_tSpVgOHnjznwl7FNd0aCF4"
+    ]
+  },
+  {
+    "query": "deep learning and neural networks",
+    "relevant_file_ids": [
+      "12bvQvTTVZnOg3SuKAi6lIzLR6jL11nAA",
+      "1cE1dwhFOD_tSpVgOHnjznwl7FNd0aCF4"
+    ]
+  },
+  {
+    "query": "what is an operating system",
+    "relevant_file_ids": [
+      "1LryeZsINjifN4R3X8vTtnAwONqsXAnz7",
+      "13rl3Fc1QeJRvoPWhXnrHh9hhWEktsC9f"
+    ]
+  },
+  {
+    "query": "functions of an operating system",
+    "relevant_file_ids": [
+      "1LryeZsINjifN4R3X8vTtnAwONqsXAnz7",
+      "13rl3Fc1QeJRvoPWhXnrHh9hhWEktsC9f"
+    ]
+  },
+  {
+    "query": "basics of computer networking",
+    "relevant_file_ids": [
+      "1tm8shLBaCtWBFhFoVEngsMxUSOHtCZ64"
+    ]
+  },
+  {
+    "query": "OSI model and network layers",
+    "relevant_file_ids": [
+      "1tm8shLBaCtWBFhFoVEngsMxUSOHtCZ64"
+    ]
+  },
+  {
+    "query": "data structures and algorithms overview",
+    "relevant_file_ids": [
+      "1tm8shLBaCtWBFhFoVEngsMxUSOHtCZ64"
+    ]
+  },
+  {
+    "query": "what is a binary tree and graph in DSA",
+    "relevant_file_ids": [
+      "1tm8shLBaCtWBFhFoVEngsMxUSOHtCZ64"
+    ]
+  },
+  {
+    "query": "difference between stack and queue",
+    "relevant_file_ids": [
+      "1tm8shLBaCtWBFhFoVEngsMxUSOHtCZ64"
+    ]
+  }
+]
