@@ -11,6 +11,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 import time
 import uuid
+import re
 
 TEMP_DIR = "temp_pdfs"
 os.makedirs(TEMP_DIR, exist_ok=True)
@@ -55,6 +56,41 @@ def download_pdf_by_id(file_id, dest_folder="downloads"):
     except Exception as e:
         print(f"Error downloading file ID {file_id}: {e}")
         return None
+
+def extract_drive_file_id(url: str) -> str | None:
+    # Extract file ID using regex
+    match = re.search(r"/d/([a-zA-Z0-9_-]+)", url)
+    if match:
+        return match.group(1)
+    return None
+
+
+def download_pdf_from_url(url: str, save_dir: str) -> str | None:
+    try:
+        file_id = extract_drive_file_id(url)
+        if not file_id:
+            print("❌ Invalid Google Drive link format.")
+            return None
+
+        # Construct direct download link
+        download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
+
+        response = requests.get(download_url)
+        if response.status_code != 200:
+            print(f"❌ Failed to fetch file from Google Drive: HTTP {response.status_code}")
+            return None
+
+        # Use file_id as safe filename
+        filename = os.path.join(save_dir, f"{file_id}.pdf")
+
+        with open(filename, "wb") as f:
+            f.write(response.content)
+
+        return filename
+    except Exception as e:
+        print(f"Download error: {e}")
+        return None
+
 
 
 def ingest_from_drive_folder(folder_url: str):
@@ -120,3 +156,44 @@ def ingest_from_drive_folder(folder_url: str):
     #             "embedding": embedding
     #         })
     #     mark_as_processed(checksum)
+
+
+
+def ingest_single_public_pdf(pdf_url: str):
+    print(f"📥 Starting ingestion for PDF URL: {pdf_url}")
+
+    path = download_pdf_from_url(pdf_url, TEMP_DIR)
+    if not path:
+        print(f"❌ Failed to download PDF from URL: {pdf_url}")
+        return
+
+    print(f"✅ Downloaded PDF to: {path}")
+
+    embedder = EmbeddingGenerator()
+    milvus = MilvusClient()
+
+    text = extract_text_from_pdf(path)
+    if not text.strip():
+        print("⚠️ Empty or unreadable text. Skipping.")
+        return
+
+    print(f"📚 Extracted {len(text)} characters from PDF")
+
+    chunks = embedder.chunk_text_by_tokens(text)  # enforce limit
+    embeddings = embedder.generate_embeddings(chunks)
+
+    if len(chunks) != len(embeddings):
+        print("❌ Mismatch between chunks and embeddings.")
+        return
+
+    pdf_id = str(uuid.uuid4())
+    file_id = os.path.basename(path)  # use filename as file_id
+
+    milvus.insert({
+        "pdf_id": [pdf_id] * len(chunks),
+        "file_id": [file_id] * len(chunks),  # ✅ THIS LINE FIXES THE ERROR
+        "chunk": chunks,
+        "embedding": embeddings,
+    })
+
+    print(f"✅ Ingested {len(chunks)} chunks for file: {file_id}")
