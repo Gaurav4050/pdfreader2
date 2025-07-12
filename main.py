@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from ingest.drive_folder_ingest import ingest_from_drive_folder, ingest_single_public_pdf
+from ingest.drive_folder_ingest import ingest_from_drive_folder, extract_file_ids_and_names, ingest_single_public_pdf
 from utils.get_query_embedding import get_query_embedding
 from utils.serach_chunks import search_chunks
 from utils.group_by_file_id import group_by_file_id
@@ -15,7 +15,8 @@ from sklearn.metrics import precision_score, recall_score, f1_score
 from typing import List, Dict
 import json
 app = FastAPI()
-
+from fastapi.responses import JSONResponse
+from pathlib import Path
 
 app.add_middleware(
     CORSMiddleware,
@@ -92,8 +93,18 @@ def semantic_search(req: QueryRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
+@app.get("/evaluation-results")
+async def get_evaluation_results():
+    file_path = Path("results.json")
+    if not file_path.exists():
+        return {"error": "result.json not found"}
+    with open(file_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    return data
+
 # Load ground truth at startup
-with open("ground_truth.json", "r") as f:
+with open("ground_truth.json", "r", encoding="utf-8") as f:
     GROUND_TRUTH = {item["query"]: item["relevant_file_ids"] for item in json.load(f)}
 
 API_URL = "http://127.0.0.1:8000/semantic-search"  # Update if hosted remotely
@@ -162,89 +173,21 @@ def evaluate_ground_truth():
 
 
 
+@app.get("/list-drive-files/")
+def list_drive_files(folder_url: str):
+    """
+    Extract and return list of files (file_id + file_name) from a Google Drive folder.
+    """
+    try:
+        files = extract_file_ids_and_names(folder_url)
+        return JSONResponse(content={"count": len(files), "files": files})
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+
 # Define request format
 class EvalItem(BaseModel):
     query: str
 
 class EvalBatchRequest(BaseModel):
     queries: List[EvalItem]
-
-
-
-
-# # Load ground truth at startup
-# with open("ground_truth.json", "r") as f:
-#     GROUND_TRUTH = {item["query"]: item["relevant_file_ids"] for item in json.load(f)}
-
-
-# @app.post("/evaluate-batch")
-# def evaluate_batch(req: EvalBatchRequest):
-
-#     metrics = {
-#         "conceptual": {"precision": [], "recall": [], "f1": []},
-#         "keyword": {"precision": [], "recall": [], "f1": []}
-#     }
-
-#     detailed_results = []
-
-#     for query in req.queries:
-#         relevant_ids = GROUND_TRUTH.get(query)
-
-#         if not relevant_ids:
-#             detailed_results.append({
-#                 "query": query,
-#                 "error": "No ground truth found for this query"
-#             })
-#             continue
-
-#         result = {"query": query, "modes": {}}
-
-#         for mode in ["conceptual", "keyword"]:
-#             try:
-#                 response = requests.post(API_URL, json={"query": query, "mode": mode})
-#                 response.raise_for_status()
-#                 data = response.json()
-#                 predicted_ids = [r["file_id"] for r in data["results"]]
-
-#                 all_ids = list(set(relevant_ids + predicted_ids))
-#                 y_true = [1 if fid in relevant_ids else 0 for fid in all_ids]
-#                 y_pred = [1 if fid in predicted_ids else 0 for fid in all_ids]
-
-#                 precision = precision_score(y_true, y_pred, zero_division=0)
-#                 recall = recall_score(y_true, y_pred, zero_division=0)
-#                 f1 = f1_score(y_true, y_pred, zero_division=0)
-
-#                 metrics[mode]["precision"].append(precision)
-#                 metrics[mode]["recall"].append(recall)
-#                 metrics[mode]["f1"].append(f1)
-
-#                 result["modes"][mode] = {
-#                     "precision": round(precision, 3),
-#                     "recall": round(recall, 3),
-#                     "f1_score": round(f1, 3),
-#                     "predicted_file_ids": predicted_ids
-#                 }
-#             except Exception as e:
-#                 result["modes"][mode] = {"error": str(e)}
-
-#         detailed_results.append(result)
-
-#     summary = {}
-#     for mode in ["conceptual", "keyword"]:
-#         try:
-#             p_avg = sum(metrics[mode]["precision"]) / len(metrics[mode]["precision"])
-#             r_avg = sum(metrics[mode]["recall"]) / len(metrics[mode]["recall"])
-#             f_avg = sum(metrics[mode]["f1"]) / len(metrics[mode]["f1"])
-#         except ZeroDivisionError:
-#             p_avg = r_avg = f_avg = 0.0
-
-#         summary[mode] = {
-#             "avg_precision": round(p_avg, 3),
-#             "avg_recall": round(r_avg, 3),
-#             "avg_f1_score": round(f_avg, 3),
-#         }
-
-#     return {
-#         "summary": summary,
-#         "details": detailed_results
-#     }
