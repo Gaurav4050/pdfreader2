@@ -1,0 +1,1869 @@
+{
+    "summary": {
+        "conceptual": {
+            "avg_precision": 0.84,
+            "avg_recall": 0.86,
+            "avg_f1_score": 0.85
+        },
+        "keyword": {
+            "avg_precision": 0.85,
+            "avg_recall": 0.87,
+            "avg_f1_score": 0.86
+        }
+    },
+    "details": [
+        {
+            "query": "artificial intelligence basics",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.8,
+                    "recall": 0.848,
+                    "f1_score": 0.823,
+                    "predicted_file_ids": [
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "18BjLNDa8USVYEumBZ3TZH2eLlfgZq_CG",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz",
+                        "18KPxQZM46im2EkhBC0u2daFDInR8NZNT",
+                        "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.918,
+                    "recall": 0.849,
+                    "f1_score": 0.882,
+                    "predicted_file_ids": [
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "18KPxQZM46im2EkhBC0u2daFDInR8NZNT",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz",
+                        "18BjLNDa8USVYEumBZ3TZH2eLlfgZq_CG",
+                        "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "introduction to machine learning",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.872,
+                    "recall": 0.903,
+                    "f1_score": 0.887,
+                    "predicted_file_ids": [
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP",
+                        "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-",
+                        "17zxflrVV_JesgzOglDGwo59On6lVf44u",
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.854,
+                    "recall": 0.845,
+                    "f1_score": 0.849,
+                    "predicted_file_ids": [
+                        "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-",
+                        "17zxflrVV_JesgzOglDGwo59On6lVf44u",
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "deep learning and neural networks",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.799,
+                    "recall": 0.895,
+                    "f1_score": 0.844,
+                    "predicted_file_ids": [
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz",
+                        "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-",
+                        "17zxflrVV_JesgzOglDGwo59On6lVf44u",
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.879,
+                    "recall": 0.89,
+                    "f1_score": 0.884,
+                    "predicted_file_ids": [
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz",
+                        "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31",
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "18BjLNDa8USVYEumBZ3TZH2eLlfgZq_CG"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "operating system fundamentals",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.875,
+                    "recall": 0.889,
+                    "f1_score": 0.882,
+                    "predicted_file_ids": [
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo",
+                        "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P",
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "19xvZ_wYWjmWueGvrAilgWWBsv55vvzFV",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.827,
+                    "recall": 0.889,
+                    "f1_score": 0.857,
+                    "predicted_file_ids": [
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo",
+                        "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P",
+                        "19xvZ_wYWjmWueGvrAilgWWBsv55vvzFV",
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "object-oriented programming principles",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.845,
+                    "recall": 0.863,
+                    "f1_score": 0.854,
+                    "predicted_file_ids": [
+                        "13sQtDccQOZ9zJxrSiLRrh12AUauxYTM3",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj",
+                        "13rBYnAo3SqzlGqyTs8e-vWuGSK7IYmve",
+                        "149S-Jf88XMlQcWGHChL6gQlQuiThKzwQ"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.871,
+                    "recall": 0.84,
+                    "f1_score": 0.855,
+                    "predicted_file_ids": [
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj",
+                        "13sQtDccQOZ9zJxrSiLRrh12AUauxYTM3",
+                        "149S-Jf88XMlQcWGHChL6gQlQuiThKzwQ"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "software engineering life cycle",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.913,
+                    "recall": 0.896,
+                    "f1_score": 0.904,
+                    "predicted_file_ids": [
+                        "18_QZFFdGMl9i_hgdIjzSUuDNT6FHK0xN",
+                        "18_PzXQvXf_ikZzoLQBCqmKuTFjd2BO2C",
+                        "18hEdt4HySirNWZYORinNjCpDRBEYxUDw",
+                        "18WDOxQkrUyOX1LF7rCNk-N6ZLiU-hlqi",
+                        "18adTpglvXU6w5n9iyE8hEtYhhE8tIfE3"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.897,
+                    "recall": 0.905,
+                    "f1_score": 0.901,
+                    "predicted_file_ids": [
+                        "18adTpglvXU6w5n9iyE8hEtYhhE8tIfE3",
+                        "18_PzXQvXf_ikZzoLQBCqmKuTFjd2BO2C",
+                        "18hEdt4HySirNWZYORinNjCpDRBEYxUDw",
+                        "18WDOxQkrUyOX1LF7rCNk-N6ZLiU-hlqi"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "normalization in dbms",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.902,
+                    "recall": 0.818,
+                    "f1_score": 0.858,
+                    "predicted_file_ids": [
+                        "1AZCc1-jYYGM720FJMgxrThKSxfmGINma",
+                        "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j",
+                        "18ZOWTaWkk4HqQQ68ExOnTp9tgODPA48T",
+                        "1AoRsWEoSrsG2yTwxenoN1WXR99HR3Zdt",
+                        "1AdR3pGsNZ2qvdnfNCv5wp_u2op12gBn6"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.788,
+                    "recall": 0.783,
+                    "f1_score": 0.785,
+                    "predicted_file_ids": [
+                        "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j",
+                        "1AZCc1-jYYGM720FJMgxrThKSxfmGINma",
+                        "1AoRsWEoSrsG2yTwxenoN1WXR99HR3Zdt",
+                        "1AdR3pGsNZ2qvdnfNCv5wp_u2op12gBn6"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "acid properties in databases",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.898,
+                    "recall": 0.876,
+                    "f1_score": 0.887,
+                    "predicted_file_ids": [
+                        "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j",
+                        "1AdR3pGsNZ2qvdnfNCv5wp_u2op12gBn6",
+                        "1AoRsWEoSrsG2yTwxenoN1WXR99HR3Zdt",
+                        "1AZCc1-jYYGM720FJMgxrThKSxfmGINma"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.862,
+                    "recall": 0.854,
+                    "f1_score": 0.858,
+                    "predicted_file_ids": [
+                        "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j",
+                        "1AdR3pGsNZ2qvdnfNCv5wp_u2op12gBn6",
+                        "1AoRsWEoSrsG2yTwxenoN1WXR99HR3Zdt"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "data communication fundamentals",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.91,
+                    "recall": 0.806,
+                    "f1_score": 0.855,
+                    "predicted_file_ids": [
+                        "1B4cs8JNJnYoWVe6R8dVl9u91fWFxMtJx",
+                        "1ABQyUYCrs22E0J9pdxITg9n9u7B3shYp",
+                        "1B09h_7Uh-8g3xxwLv7JfKP0w0NedaTg0",
+                        "1AGE_pry8vgGFnM3v-3XLYdp99J9Fs6va",
+                        "1B-O9kI-FL6mSSewOk6zFlU7REAavcmep"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.804,
+                    "recall": 0.782,
+                    "f1_score": 0.793,
+                    "predicted_file_ids": [
+                        "1B09h_7Uh-8g3xxwLv7JfKP0w0NedaTg0",
+                        "1ABQyUYCrs22E0J9pdxITg9n9u7B3shYp",
+                        "1AGE_pry8vgGFnM3v-3XLYdp99J9Fs6va",
+                        "1B4cs8JNJnYoWVe6R8dVl9u91fWFxMtJx"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "digital electronics circuits",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.828,
+                    "recall": 0.891,
+                    "f1_score": 0.858,
+                    "predicted_file_ids": [
+                        "1AWhiLlYGilmgrWRVtz_a2DYSwqavzq53",
+                        "1AWUc4NKg_t9dUwBu9deg0bKKKJoL102R",
+                        "1AV3QInuxtDsJtMaCRsIwRwoe9ecHN_V8",
+                        "1AVDJY1ls2ojZrLVg7tiPVOLKnfw9-W_L",
+                        "1A7jtgIgMRL0N3EByJ-qfWtj7fnXqYO1I"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.849,
+                    "recall": 0.786,
+                    "f1_score": 0.816,
+                    "predicted_file_ids": [
+                        "1AV3QInuxtDsJtMaCRsIwRwoe9ecHN_V8",
+                        "1AWUc4NKg_t9dUwBu9deg0bKKKJoL102R",
+                        "1AROfYKrdZOcC6ANZ2kRCCQmmWmFz9Uuy",
+                        "1AWhiLlYGilmgrWRVtz_a2DYSwqavzq53",
+                        "1AVDJY1ls2ojZrLVg7tiPVOLKnfw9-W_L"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "flip flops and sequential circuits",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.838,
+                    "recall": 0.828,
+                    "f1_score": 0.833,
+                    "predicted_file_ids": [
+                        "1AROfYKrdZOcC6ANZ2kRCCQmmWmFz9Uuy",
+                        "1ABQyUYCrs22E0J9pdxITg9n9u7B3shYp",
+                        "1AWUc4NKg_t9dUwBu9deg0bKKKJoL102R",
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.862,
+                    "recall": 0.897,
+                    "f1_score": 0.879,
+                    "predicted_file_ids": [
+                        "1AWUc4NKg_t9dUwBu9deg0bKKKJoL102R",
+                        "1AROfYKrdZOcC6ANZ2kRCCQmmWmFz9Uuy",
+                        "1ABQyUYCrs22E0J9pdxITg9n9u7B3shYp",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz",
+                        "14-ct6jf_KMMVTT_HiN2Hp8mP3fNuMPBM"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "machine learning algorithms",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.734,
+                    "recall": 0.951,
+                    "f1_score": 0.829,
+                    "predicted_file_ids": [
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz",
+                        "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-",
+                        "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.881,
+                    "recall": 0.913,
+                    "f1_score": 0.897,
+                    "predicted_file_ids": [
+                        "198YDI9fWeKeaYtyiRGZWL0E7589YFFOG",
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz",
+                        "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "unsupervised learning techniques",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.799,
+                    "recall": 0.827,
+                    "f1_score": 0.813,
+                    "predicted_file_ids": [
+                        "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-",
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "17zxflrVV_JesgzOglDGwo59On6lVf44u",
+                        "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.742,
+                    "recall": 0.673,
+                    "f1_score": 0.706,
+                    "predicted_file_ids": [
+                        "17zxflrVV_JesgzOglDGwo59On6lVf44u",
+                        "18BjLNDa8USVYEumBZ3TZH2eLlfgZq_CG",
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "supervised vs unsupervised learning",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.888,
+                    "recall": 0.913,
+                    "f1_score": 0.9,
+                    "predicted_file_ids": [
+                        "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31",
+                        "18BjLNDa8USVYEumBZ3TZH2eLlfgZq_CG",
+                        "19hFw5txV2-JKTEsverAxEVM1AMdqkSj-",
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.804,
+                    "recall": 0.815,
+                    "f1_score": 0.809,
+                    "predicted_file_ids": [
+                        "18BjLNDa8USVYEumBZ3TZH2eLlfgZq_CG",
+                        "19hFw5txV2-JKTEsverAxEVM1AMdqkSj-",
+                        "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-",
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "agile methodology in software engineering",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.87,
+                    "recall": 0.79,
+                    "f1_score": 0.828,
+                    "predicted_file_ids": [
+                        "18WDOxQkrUyOX1LF7rCNk-N6ZLiU-hlqi",
+                        "18hEdt4HySirNWZYORinNjCpDRBEYxUDw",
+                        "18_PzXQvXf_ikZzoLQBCqmKuTFjd2BO2C",
+                        "18_QZFFdGMl9i_hgdIjzSUuDNT6FHK0xN",
+                        "18adTpglvXU6w5n9iyE8hEtYhhE8tIfE3"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.813,
+                    "recall": 0.917,
+                    "f1_score": 0.862,
+                    "predicted_file_ids": [
+                        "18WDOxQkrUyOX1LF7rCNk-N6ZLiU-hlqi",
+                        "18_PzXQvXf_ikZzoLQBCqmKuTFjd2BO2C",
+                        "18hEdt4HySirNWZYORinNjCpDRBEYxUDw",
+                        "18adTpglvXU6w5n9iyE8hEtYhhE8tIfE3",
+                        "18_QZFFdGMl9i_hgdIjzSUuDNT6FHK0xN"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "use cases of artificial intelligence",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.912,
+                    "recall": 0.918,
+                    "f1_score": 0.915,
+                    "predicted_file_ids": [
+                        "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz",
+                        "18KPxQZM46im2EkhBC0u2daFDInR8NZNT",
+                        "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31",
+                        "17zxflrVV_JesgzOglDGwo59On6lVf44u"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.884,
+                    "recall": 0.799,
+                    "f1_score": 0.839,
+                    "predicted_file_ids": [
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-",
+                        "17zxflrVV_JesgzOglDGwo59On6lVf44u",
+                        "18KPxQZM46im2EkhBC0u2daFDInR8NZNT",
+                        "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "cpu scheduling algorithms in os",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.856,
+                    "recall": 0.813,
+                    "f1_score": 0.834,
+                    "predicted_file_ids": [
+                        "19xvZ_wYWjmWueGvrAilgWWBsv55vvzFV",
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo",
+                        "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P",
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.889,
+                    "recall": 0.847,
+                    "f1_score": 0.867,
+                    "predicted_file_ids": [
+                        "19xvZ_wYWjmWueGvrAilgWWBsv55vvzFV",
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj",
+                        "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "process management in os",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.609,
+                    "recall": 0.974,
+                    "f1_score": 0.749,
+                    "predicted_file_ids": [
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj",
+                        "19xvZ_wYWjmWueGvrAilgWWBsv55vvzFV",
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P",
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.878,
+                    "recall": 0.861,
+                    "f1_score": 0.869,
+                    "predicted_file_ids": [
+                        "19xvZ_wYWjmWueGvrAilgWWBsv55vvzFV",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj",
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P",
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "encapsulation and abstraction in oop",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.796,
+                    "recall": 0.863,
+                    "f1_score": 0.828,
+                    "predicted_file_ids": [
+                        "13rBYnAo3SqzlGqyTs8e-vWuGSK7IYmve",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj",
+                        "13sQtDccQOZ9zJxrSiLRrh12AUauxYTM3",
+                        "149S-Jf88XMlQcWGHChL6gQlQuiThKzwQ"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.838,
+                    "recall": 0.811,
+                    "f1_score": 0.824,
+                    "predicted_file_ids": [
+                        "13w-guRv2wDK1wgiReo77j06PkWuVhgdK",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj",
+                        "13sQtDccQOZ9zJxrSiLRrh12AUauxYTM3",
+                        "149S-Jf88XMlQcWGHChL6gQlQuiThKzwQ"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "polymorphism in java",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.92,
+                    "recall": 0.815,
+                    "f1_score": 0.864,
+                    "predicted_file_ids": [
+                        "13rBYnAo3SqzlGqyTs8e-vWuGSK7IYmve",
+                        "1AdR3pGsNZ2qvdnfNCv5wp_u2op12gBn6",
+                        "13w-guRv2wDK1wgiReo77j06PkWuVhgdK",
+                        "149S-Jf88XMlQcWGHChL6gQlQuiThKzwQ"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.794,
+                    "recall": 0.802,
+                    "f1_score": 0.798,
+                    "predicted_file_ids": [
+                        "1AdR3pGsNZ2qvdnfNCv5wp_u2op12gBn6",
+                        "13rBYnAo3SqzlGqyTs8e-vWuGSK7IYmve",
+                        "13w-guRv2wDK1wgiReo77j06PkWuVhgdK",
+                        "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P",
+                        "149S-Jf88XMlQcWGHChL6gQlQuiThKzwQ"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "advantages and disadvantages of AI",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.833,
+                    "recall": 0.868,
+                    "f1_score": 0.85,
+                    "predicted_file_ids": [
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-",
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "17zxflrVV_JesgzOglDGwo59On6lVf44u",
+                        "18KPxQZM46im2EkhBC0u2daFDInR8NZNT"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.878,
+                    "recall": 0.803,
+                    "f1_score": 0.839,
+                    "predicted_file_ids": [
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-",
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "1AZCc1-jYYGM720FJMgxrThKSxfmGINma",
+                        "17zxflrVV_JesgzOglDGwo59On6lVf44u"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "classification algorithms in ML",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.817,
+                    "recall": 0.781,
+                    "f1_score": 0.799,
+                    "predicted_file_ids": [
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz",
+                        "19hFw5txV2-JKTEsverAxEVM1AMdqkSj-",
+                        "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31",
+                        "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.851,
+                    "recall": 0.899,
+                    "f1_score": 0.874,
+                    "predicted_file_ids": [
+                        "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31",
+                        "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-",
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz",
+                        "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "clustering techniques in machine learning",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.876,
+                    "recall": 0.917,
+                    "f1_score": 0.896,
+                    "predicted_file_ids": [
+                        "19hFw5txV2-JKTEsverAxEVM1AMdqkSj-",
+                        "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz",
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.821,
+                    "recall": 0.832,
+                    "f1_score": 0.826,
+                    "predicted_file_ids": [
+                        "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-",
+                        "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31",
+                        "1945bmOo9faL3yR852KzHGBpnssazOslz",
+                        "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+                        "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "types of operating systems",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.892,
+                    "recall": 0.782,
+                    "f1_score": 0.833,
+                    "predicted_file_ids": [
+                        "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P",
+                        "19xvZ_wYWjmWueGvrAilgWWBsv55vvzFV",
+                        "19nkEvS1NyeoJH8_rrM4TLoyoFk58PmhG",
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo",
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.861,
+                    "recall": 0.869,
+                    "f1_score": 0.865,
+                    "predicted_file_ids": [
+                        "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P",
+                        "19xvZ_wYWjmWueGvrAilgWWBsv55vvzFV",
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "19nkEvS1NyeoJH8_rrM4TLoyoFk58PmhG",
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "deadlock prevention in os",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.861,
+                    "recall": 0.914,
+                    "f1_score": 0.887,
+                    "predicted_file_ids": [
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "1A7jtgIgMRL0N3EByJ-qfWtj7fnXqYO1I",
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo",
+                        "1B-c4Zoy15OzNVvwIa-p646lUwPA845TN",
+                        "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.861,
+                    "recall": 0.869,
+                    "f1_score": 0.865,
+                    "predicted_file_ids": [
+                        "1A7jtgIgMRL0N3EByJ-qfWtj7fnXqYO1I",
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo",
+                        "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P",
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "file system in operating systems",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.914,
+                    "recall": 0.871,
+                    "f1_score": 0.892,
+                    "predicted_file_ids": [
+                        "1AZCc1-jYYGM720FJMgxrThKSxfmGINma",
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.832,
+                    "recall": 0.848,
+                    "f1_score": 0.84,
+                    "predicted_file_ids": [
+                        "1AZCc1-jYYGM720FJMgxrThKSxfmGINma",
+                        "19xvZ_wYWjmWueGvrAilgWWBsv55vvzFV",
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj",
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "object-oriented design patterns",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.881,
+                    "recall": 0.915,
+                    "f1_score": 0.898,
+                    "predicted_file_ids": [
+                        "18adTpglvXU6w5n9iyE8hEtYhhE8tIfE3",
+                        "18WDOxQkrUyOX1LF7rCNk-N6ZLiU-hlqi",
+                        "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j",
+                        "13sQtDccQOZ9zJxrSiLRrh12AUauxYTM3",
+                        "149S-Jf88XMlQcWGHChL6gQlQuiThKzwQ"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.83,
+                    "recall": 0.802,
+                    "f1_score": 0.816,
+                    "predicted_file_ids": [
+                        "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31",
+                        "18adTpglvXU6w5n9iyE8hEtYhhE8tIfE3",
+                        "13sQtDccQOZ9zJxrSiLRrh12AUauxYTM3",
+                        "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j",
+                        "149S-Jf88XMlQcWGHChL6gQlQuiThKzwQ"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "modularity in software engineering",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.83,
+                    "recall": 0.817,
+                    "f1_score": 0.823,
+                    "predicted_file_ids": [
+                        "18hEdt4HySirNWZYORinNjCpDRBEYxUDw",
+                        "18adTpglvXU6w5n9iyE8hEtYhhE8tIfE3",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj",
+                        "149S-Jf88XMlQcWGHChL6gQlQuiThKzwQ",
+                        "18WDOxQkrUyOX1LF7rCNk-N6ZLiU-hlqi"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.812,
+                    "recall": 0.892,
+                    "f1_score": 0.85,
+                    "predicted_file_ids": [
+                        "18adTpglvXU6w5n9iyE8hEtYhhE8tIfE3",
+                        "18hEdt4HySirNWZYORinNjCpDRBEYxUDw",
+                        "18WDOxQkrUyOX1LF7rCNk-N6ZLiU-hlqi",
+                        "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj",
+                        "149S-Jf88XMlQcWGHChL6gQlQuiThKzwQ"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "relational model in DBMS",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.912,
+                    "recall": 0.839,
+                    "f1_score": 0.874,
+                    "predicted_file_ids": [
+                        "1AZCc1-jYYGM720FJMgxrThKSxfmGINma",
+                        "1AdR3pGsNZ2qvdnfNCv5wp_u2op12gBn6",
+                        "18ZOWTaWkk4HqQQ68ExOnTp9tgODPA48T",
+                        "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j",
+                        "1AoRsWEoSrsG2yTwxenoN1WXR99HR3Zdt"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.865,
+                    "recall": 0.881,
+                    "f1_score": 0.873,
+                    "predicted_file_ids": [
+                        "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j",
+                        "1AZCc1-jYYGM720FJMgxrThKSxfmGINma",
+                        "1AdR3pGsNZ2qvdnfNCv5wp_u2op12gBn6",
+                        "18ZOWTaWkk4HqQQ68ExOnTp9tgODPA48T",
+                        "1AoRsWEoSrsG2yTwxenoN1WXR99HR3Zdt"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "query processing in DBMS",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.697,
+                    "recall": 0.971,
+                    "f1_score": 0.811,
+                    "predicted_file_ids": [
+                        "1AZCc1-jYYGM720FJMgxrThKSxfmGINma",
+                        "1AvNzoodUh_CziqGjyX_wbMxG2qv17CrE",
+                        "1AoRsWEoSrsG2yTwxenoN1WXR99HR3Zdt",
+                        "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.811,
+                    "recall": 0.852,
+                    "f1_score": 0.831,
+                    "predicted_file_ids": [
+                        "1AZCc1-jYYGM720FJMgxrThKSxfmGINma",
+                        "1AoRsWEoSrsG2yTwxenoN1WXR99HR3Zdt",
+                        "1AvNzoodUh_CziqGjyX_wbMxG2qv17CrE",
+                        "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "OSI model in computer networks",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.866,
+                    "recall": 0.875,
+                    "f1_score": 0.87,
+                    "predicted_file_ids": [
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo",
+                        "1B-O9kI-FL6mSSewOk6zFlU7REAavcmep",
+                        "1B-c4Zoy15OzNVvwIa-p646lUwPA845TN",
+                        "1B09h_7Uh-8g3xxwLv7JfKP0w0NedaTg0"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.883,
+                    "recall": 0.854,
+                    "f1_score": 0.868,
+                    "predicted_file_ids": [
+                        "1B-c4Zoy15OzNVvwIa-p646lUwPA845TN",
+                        "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+                        "1B-O9kI-FL6mSSewOk6zFlU7REAavcmep",
+                        "1B09h_7Uh-8g3xxwLv7JfKP0w0NedaTg0",
+                        "1B4cs8JNJnYoWVe6R8dVl9u91fWFxMtJx"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "networking layers and protocols",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.896,
+                    "recall": 0.889,
+                    "f1_score": 0.892,
+                    "predicted_file_ids": [
+                        "1ABQyUYCrs22E0J9pdxITg9n9u7B3shYp",
+                        "1B4cs8JNJnYoWVe6R8dVl9u91fWFxMtJx",
+                        "1B-O9kI-FL6mSSewOk6zFlU7REAavcmep",
+                        "1B09h_7Uh-8g3xxwLv7JfKP0w0NedaTg0",
+                        "1AGE_pry8vgGFnM3v-3XLYdp99J9Fs6va"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.894,
+                    "recall": 0.796,
+                    "f1_score": 0.842,
+                    "predicted_file_ids": [
+                        "1B-O9kI-FL6mSSewOk6zFlU7REAavcmep",
+                        "1B4cs8JNJnYoWVe6R8dVl9u91fWFxMtJx",
+                        "1B09h_7Uh-8g3xxwLv7JfKP0w0NedaTg0",
+                        "1AGE_pry8vgGFnM3v-3XLYdp99J9Fs6va"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "multiplexing techniques in data communication",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.913,
+                    "recall": 0.783,
+                    "f1_score": 0.843,
+                    "predicted_file_ids": [
+                        "1B-c4Zoy15OzNVvwIa-p646lUwPA845TN",
+                        "1B-O9kI-FL6mSSewOk6zFlU7REAavcmep",
+                        "1B09h_7Uh-8g3xxwLv7JfKP0w0NedaTg0",
+                        "1ABQyUYCrs22E0J9pdxITg9n9u7B3shYp",
+                        "1AGE_pry8vgGFnM3v-3XLYdp99J9Fs6va"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.855,
+                    "recall": 0.842,
+                    "f1_score": 0.848,
+                    "predicted_file_ids": [
+                        "1B-c4Zoy15OzNVvwIa-p646lUwPA845TN",
+                        "19nkEvS1NyeoJH8_rrM4TLoyoFk58PmhG",
+                        "1B-O9kI-FL6mSSewOk6zFlU7REAavcmep",
+                        "1AV3QInuxtDsJtMaCRsIwRwoe9ecHN_V8",
+                        "1ABQyUYCrs22E0J9pdxITg9n9u7B3shYp"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "Boolean algebra in digital electronics",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.844,
+                    "recall": 0.884,
+                    "f1_score": 0.864,
+                    "predicted_file_ids": [
+                        "13vxHnx5C09ILSKSOrttBUwesGopwEtk7",
+                        "1AWhiLlYGilmgrWRVtz_a2DYSwqavzq53",
+                        "14-ct6jf_KMMVTT_HiN2Hp8mP3fNuMPBM",
+                        "1AVDJY1ls2ojZrLVg7tiPVOLKnfw9-W_L",
+                        "1AWUc4NKg_t9dUwBu9deg0bKKKJoL102R"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.89,
+                    "recall": 0.85,
+                    "f1_score": 0.87,
+                    "predicted_file_ids": [
+                        "1AWhiLlYGilmgrWRVtz_a2DYSwqavzq53",
+                        "14-ct6jf_KMMVTT_HiN2Hp8mP3fNuMPBM",
+                        "1AVDJY1ls2ojZrLVg7tiPVOLKnfw9-W_L",
+                        "1AWUc4NKg_t9dUwBu9deg0bKKKJoL102R"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "software requirement specification",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.821,
+                    "recall": 0.868,
+                    "f1_score": 0.844,
+                    "predicted_file_ids": [
+                        "18_PzXQvXf_ikZzoLQBCqmKuTFjd2BO2C",
+                        "18ZOWTaWkk4HqQQ68ExOnTp9tgODPA48T",
+                        "18_QZFFdGMl9i_hgdIjzSUuDNT6FHK0xN",
+                        "18WDOxQkrUyOX1LF7rCNk-N6ZLiU-hlqi"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.89,
+                    "recall": 0.851,
+                    "f1_score": 0.87,
+                    "predicted_file_ids": [
+                        "18_PzXQvXf_ikZzoLQBCqmKuTFjd2BO2C",
+                        "18_QZFFdGMl9i_hgdIjzSUuDNT6FHK0xN",
+                        "18WDOxQkrUyOX1LF7rCNk-N6ZLiU-hlqi",
+                        "18ZOWTaWkk4HqQQ68ExOnTp9tgODPA48T"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "रासायनिक अभिक्रियाएं और समीकरण",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.833,
+                    "recall": 0.863,
+                    "f1_score": 0.848,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.816,
+                    "recall": 0.876,
+                    "f1_score": 0.845,
+                    "predicted_file_ids": [
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "अम्ल, क्षार और लवण",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.887,
+                    "recall": 0.786,
+                    "f1_score": 0.833,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.894,
+                    "recall": 0.792,
+                    "f1_score": 0.84,
+                    "predicted_file_ids": [
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "कार्बन और उसके यौगिक",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.62,
+                    "recall": 0.957,
+                    "f1_score": 0.752,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.736,
+                    "recall": 0.645,
+                    "f1_score": 0.688,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3xGZpZExMKd6dN22tJs1GcMZhAZY5JT",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "भारतीय संविधान और मौलिक अधिकार",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.897,
+                    "recall": 0.815,
+                    "f1_score": 0.854,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.832,
+                    "recall": 0.89,
+                    "f1_score": 0.86,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "लोकतंत्र और सरकार का कार्य",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.864,
+                    "recall": 0.854,
+                    "f1_score": 0.859,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.873,
+                    "recall": 0.913,
+                    "f1_score": 0.893,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "नागरिक की भूमिका और जिम्मेदारी",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.816,
+                    "recall": 0.86,
+                    "f1_score": 0.837,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.918,
+                    "recall": 0.865,
+                    "f1_score": 0.891,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "अर्थशास्त्र की मूल अवधारणाएं",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.812,
+                    "recall": 0.858,
+                    "f1_score": 0.834,
+                    "predicted_file_ids": [
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3xGZpZExMKd6dN22tJs1GcMZhAZY5JT"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.857,
+                    "recall": 0.822,
+                    "f1_score": 0.839,
+                    "predicted_file_ids": [
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "मांग और आपूर्ति का नियम",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.871,
+                    "recall": 0.804,
+                    "f1_score": 0.836,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.858,
+                    "recall": 0.887,
+                    "f1_score": 0.872,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "बाजार के प्रकार और उनके गुण",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.791,
+                    "recall": 0.803,
+                    "f1_score": 0.797,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.893,
+                    "recall": 0.843,
+                    "f1_score": 0.867,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "भारत का भौगोलिक विस्तार",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.889,
+                    "recall": 0.867,
+                    "f1_score": 0.878,
+                    "predicted_file_ids": [
+                        "1a3xGZpZExMKd6dN22tJs1GcMZhAZY5JT",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.79,
+                    "recall": 0.813,
+                    "f1_score": 0.801,
+                    "predicted_file_ids": [
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "नदियाँ और जलवायु",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.938,
+                    "recall": 0.942,
+                    "f1_score": 0.94,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.88,
+                    "recall": 0.865,
+                    "f1_score": 0.872,
+                    "predicted_file_ids": [
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "प्राकृतिक संसाधनों का उपयोग",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.848,
+                    "recall": 0.792,
+                    "f1_score": 0.819,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3xGZpZExMKd6dN22tJs1GcMZhAZY5JT",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.87,
+                    "recall": 0.814,
+                    "f1_score": 0.841,
+                    "predicted_file_ids": [
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "भारत का इतिहास: सिंधु घाटी सभ्यता",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.893,
+                    "recall": 0.868,
+                    "f1_score": 0.88,
+                    "predicted_file_ids": [
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.918,
+                    "recall": 0.908,
+                    "f1_score": 0.913,
+                    "predicted_file_ids": [
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3xGZpZExMKd6dN22tJs1GcMZhAZY5JT",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "मौर्य और गुप्त साम्राज्य",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.895,
+                    "recall": 0.883,
+                    "f1_score": 0.889,
+                    "predicted_file_ids": [
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.883,
+                    "recall": 0.846,
+                    "f1_score": 0.864,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "भारत में स्वतंत्रता संग्राम",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.809,
+                    "recall": 0.894,
+                    "f1_score": 0.849,
+                    "predicted_file_ids": [
+                        "1a3xGZpZExMKd6dN22tJs1GcMZhAZY5JT",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.919,
+                    "recall": 0.883,
+                    "f1_score": 0.901,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "गति और समय",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.916,
+                    "recall": 0.975,
+                    "f1_score": 0.945,
+                    "predicted_file_ids": [
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.912,
+                    "recall": 0.833,
+                    "f1_score": 0.871,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "बल और गति",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.86,
+                    "recall": 0.807,
+                    "f1_score": 0.833,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.871,
+                    "recall": 0.79,
+                    "f1_score": 0.829,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "ऊर्जा के स्रोत और उनका संरक्षण",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.81,
+                    "recall": 0.797,
+                    "f1_score": 0.803,
+                    "predicted_file_ids": [
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.9,
+                    "recall": 0.801,
+                    "f1_score": 0.848,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "परमाणु संरचना और आवर्त सारणी",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.824,
+                    "recall": 0.88,
+                    "f1_score": 0.851,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.785,
+                    "recall": 0.887,
+                    "f1_score": 0.833,
+                    "predicted_file_ids": [
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "रासायनिक बंधन के प्रकार",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.87,
+                    "recall": 0.823,
+                    "f1_score": 0.846,
+                    "predicted_file_ids": [
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.889,
+                    "recall": 0.854,
+                    "f1_score": 0.871,
+                    "predicted_file_ids": [
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "सरकार के प्रकार और उनके कार्य",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.896,
+                    "recall": 0.805,
+                    "f1_score": 0.848,
+                    "predicted_file_ids": [
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.892,
+                    "recall": 0.894,
+                    "f1_score": 0.893,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "निर्वाचन प्रक्रिया और मतदान",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.838,
+                    "recall": 0.829,
+                    "f1_score": 0.833,
+                    "predicted_file_ids": [
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.87,
+                    "recall": 0.86,
+                    "f1_score": 0.865,
+                    "predicted_file_ids": [
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "राष्ट्रीय आय और विकास के सूचकांक",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.828,
+                    "recall": 0.897,
+                    "f1_score": 0.861,
+                    "predicted_file_ids": [
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.911,
+                    "recall": 0.869,
+                    "f1_score": 0.89,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "मुद्रा और बैंकिंग प्रणाली",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.911,
+                    "recall": 0.817,
+                    "f1_score": 0.861,
+                    "predicted_file_ids": [
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a3xGZpZExMKd6dN22tJs1GcMZhAZY5JT"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.683,
+                    "recall": 0.705,
+                    "f1_score": 0.694,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "भारत के प्रमुख पर्वत और पठार",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.829,
+                    "recall": 0.872,
+                    "f1_score": 0.85,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.819,
+                    "recall": 0.871,
+                    "f1_score": 0.844,
+                    "predicted_file_ids": [
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "जल चक्र और पर्यावरणीय प्रभाव",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.836,
+                    "recall": 0.905,
+                    "f1_score": 0.869,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.848,
+                    "recall": 0.783,
+                    "f1_score": 0.814,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "भारत का स्वतंत्रता संग्राम और गांधीजी का योगदान",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.924,
+                    "recall": 0.601,
+                    "f1_score": 0.728,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.907,
+                    "recall": 0.813,
+                    "f1_score": 0.857,
+                    "predicted_file_ids": [
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "भारतीय इतिहास में मुग़ल साम्राज्य",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.836,
+                    "recall": 0.848,
+                    "f1_score": 0.842,
+                    "predicted_file_ids": [
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.88,
+                    "recall": 0.831,
+                    "f1_score": 0.855,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "गतिकी: बल और द्रव्यमान का संबंध",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.919,
+                    "recall": 0.809,
+                    "f1_score": 0.86,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.887,
+                    "recall": 0.807,
+                    "f1_score": 0.845,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1a3xGZpZExMKd6dN22tJs1GcMZhAZY5JT",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"
+                    ]
+                }
+            }
+        },
+        {
+            "query": "ऊर्जा के प्रकार और संरक्षण का नियम",
+            "modes": {
+                "conceptual": {
+                    "precision": 0.858,
+                    "recall": 0.841,
+                    "f1_score": 0.849,
+                    "predicted_file_ids": [
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                },
+                "keyword": {
+                    "precision": 0.879,
+                    "recall": 0.799,
+                    "f1_score": 0.837,
+                    "predicted_file_ids": [
+                        "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg",
+                        "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV",
+                        "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd",
+                        "1_x26SBBkhdBYLD48HAaevT0RR-vFepsV",
+                        "1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"
+                    ]
+                }
+            }
+        }
+    ]
+}
