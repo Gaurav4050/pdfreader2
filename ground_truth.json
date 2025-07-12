@@ -1,60 +1,442 @@
 [
   {
-    "query": "artificial intelligence and machine learning",
+    "query": "artificial intelligence basics",
     "relevant_file_ids": [
-      "12bvQvTTVZnOg3SuKAi6lIzLR6jL11nAA",
-      "1cE1dwhFOD_tSpVgOHnjznwl7FNd0aCF4"
+      "17zxflrVV_JesgzOglDGwo59On6lVf44u",
+      "18SlFiWJxnxdbUan5VUevHk5EbSeW8g1M",
+      "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-",
+      "18KPxQZM46im2EkhBC0u2daFDInR8NZNT",
+      "18BjLNDa8USVYEumBZ3TZH2eLlfgZq_CG",
+      "189Nl4J6LYOnar1ern8S2T6pYJUxaNhD-"
+    ]
+  },
+  {
+    "query": "introduction to machine learning",
+    "relevant_file_ids": [
+      "18nIhCNFOaJ2Tw7rkA4G9MoW_GKC7CQ31",
+      "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+      "1945bmOo9faL3yR852KzHGBpnssazOslz",
+      "198YDI9fWeKeaYtyiRGZWL0E7589YFFOG",
+      "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP",
+      "19hFw5txV2-JKTEsverAxEVM1AMdqkSj-"
     ]
   },
   {
     "query": "deep learning and neural networks",
     "relevant_file_ids": [
-      "12bvQvTTVZnOg3SuKAi6lIzLR6jL11nAA",
-      "1cE1dwhFOD_tSpVgOHnjznwl7FNd0aCF4"
+      "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+      "1945bmOo9faL3yR852KzHGBpnssazOslz",
+      "198YDI9fWeKeaYtyiRGZWL0E7589YFFOG",
+      "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP",
+      "19hFw5txV2-JKTEsverAxEVM1AMdqkSj-"
     ]
   },
   {
-    "query": "what is an operating system",
+    "query": "operating system fundamentals",
     "relevant_file_ids": [
-      "1LryeZsINjifN4R3X8vTtnAwONqsXAnz7",
-      "13rl3Fc1QeJRvoPWhXnrHh9hhWEktsC9f"
+      "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo",
+      "19xvZ_wYWjmWueGvrAilgWWBsv55vvzFV",
+      "19nkEvS1NyeoJH8_rrM4TLoyoFk58PmhG",
+      "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+      "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj",
+      "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P"
     ]
   },
   {
-    "query": "functions of an operating system",
+    "query": "object-oriented programming principles",
     "relevant_file_ids": [
-      "1LryeZsINjifN4R3X8vTtnAwONqsXAnz7",
-      "13rl3Fc1QeJRvoPWhXnrHh9hhWEktsC9f"
+      "149S-Jf88XMlQcWGHChL6gQlQuiThKzwQ",
+      "142nboDIPD_59vD9vhKEiyQV7wAKl0Eux",
+      "14-ct6jf_KMMVTT_HiN2Hp8mP3fNuMPBM",
+      "13w-guRv2wDK1wgiReo77j06PkWuVhgdK",
+      "13vxHnx5C09ILSKSOrttBUwesGopwEtk7",
+      "13sQtDccQOZ9zJxrSiLRrh12AUauxYTM3",
+      "13rBYnAo3SqzlGqyTs8e-vWuGSK7IYmve"
     ]
   },
   {
-    "query": "basics of computer networking",
+    "query": "software engineering life cycle",
     "relevant_file_ids": [
-      "1tm8shLBaCtWBFhFoVEngsMxUSOHtCZ64"
+      "18WDOxQkrUyOX1LF7rCNk-N6ZLiU-hlqi",
+      "18hEdt4HySirNWZYORinNjCpDRBEYxUDw",
+      "18adTpglvXU6w5n9iyE8hEtYhhE8tIfE3",
+      "18_QZFFdGMl9i_hgdIjzSUuDNT6FHK0xN",
+      "18_PzXQvXf_ikZzoLQBCqmKuTFjd2BO2C",
+      "18ZOWTaWkk4HqQQ68ExOnTp9tgODPA48T"
     ]
   },
   {
-    "query": "OSI model and network layers",
+    "query": "normalization in dbms",
     "relevant_file_ids": [
-      "1tm8shLBaCtWBFhFoVEngsMxUSOHtCZ64"
+      "1AZCc1-jYYGM720FJMgxrThKSxfmGINma",
+      "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j",
+      "1AoRsWEoSrsG2yTwxenoN1WXR99HR3Zdt",
+      "1AdR3pGsNZ2qvdnfNCv5wp_u2op12gBn6",
+      "1AzjyW_DQIo8IECxRNQQalFsX6YTv7-EW",
+      "1AvNzoodUh_CziqGjyX_wbMxG2qv17CrE"
     ]
   },
   {
-    "query": "data structures and algorithms overview",
+    "query": "acid properties in databases",
     "relevant_file_ids": [
-      "1tm8shLBaCtWBFhFoVEngsMxUSOHtCZ64"
+      "1AZCc1-jYYGM720FJMgxrThKSxfmGINma",
+      "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j",
+      "1AoRsWEoSrsG2yTwxenoN1WXR99HR3Zdt"
     ]
   },
   {
-    "query": "what is a binary tree and graph in DSA",
+    "query": "data communication fundamentals",
     "relevant_file_ids": [
-      "1tm8shLBaCtWBFhFoVEngsMxUSOHtCZ64"
+      "1ABQyUYCrs22E0J9pdxITg9n9u7B3shYp",
+      "1B-c4Zoy15OzNVvwIa-p646lUwPA845TN",
+      "1B-O9kI-FL6mSSewOk6zFlU7REAavcmep",
+      "1B4cs8JNJnYoWVe6R8dVl9u91fWFxMtJx",
+      "1B09h_7Uh-8g3xxwLv7JfKP0w0NedaTg0",
+      "1AGE_pry8vgGFnM3v-3XLYdp99J9Fs6va"
     ]
   },
   {
-    "query": "difference between stack and queue",
+    "query": "digital electronics circuits",
     "relevant_file_ids": [
-      "1tm8shLBaCtWBFhFoVEngsMxUSOHtCZ64"
+      "1AVDJY1ls2ojZrLVg7tiPVOLKnfw9-W_L",
+      "1AROfYKrdZOcC6ANZ2kRCCQmmWmFz9Uuy",
+      "1AWhiLlYGilmgrWRVtz_a2DYSwqavzq53",
+      "1AV3QInuxtDsJtMaCRsIwRwoe9ecHN_V8",
+      "1AWUc4NKg_t9dUwBu9deg0bKKKJoL102R",
+      "1A7jtgIgMRL0N3EByJ-qfWtj7fnXqYO1I"
     ]
+  },
+  {
+    "query": "flip flops and sequential circuits",
+    "relevant_file_ids": [
+      "1AWhiLlYGilmgrWRVtz_a2DYSwqavzq53",
+      "1AV3QInuxtDsJtMaCRsIwRwoe9ecHN_V8",
+      "1AWUc4NKg_t9dUwBu9deg0bKKKJoL102R"
+    ]
+  },
+  {
+    "query": "machine learning algorithms",
+    "relevant_file_ids": [
+      "1945bmOo9faL3yR852KzHGBpnssazOslz",
+      "198YDI9fWeKeaYtyiRGZWL0E7589YFFOG",
+      "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP"
+    ]
+  },
+  {
+    "query": "unsupervised learning techniques",
+    "relevant_file_ids": [
+      "198YDI9fWeKeaYtyiRGZWL0E7589YFFOG",
+      "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP"
+    ]
+  },
+  {
+    "query": "supervised vs unsupervised learning",
+    "relevant_file_ids": [
+      "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+      "1945bmOo9faL3yR852KzHGBpnssazOslz",
+      "198YDI9fWeKeaYtyiRGZWL0E7589YFFOG"
+    ]
+  },
+  {
+    "query": "agile methodology in software engineering",
+    "relevant_file_ids": [
+      "18adTpglvXU6w5n9iyE8hEtYhhE8tIfE3",
+      "18_QZFFdGMl9i_hgdIjzSUuDNT6FHK0xN"
+    ]
+  },
+  {
+    "query": "use cases of artificial intelligence",
+    "relevant_file_ids": [
+      "17zxflrVV_JesgzOglDGwo59On6lVf44u",
+      "18SlFiWJxnxdbUan5VUevHk5EbSeW8g1M",
+      "18KPxQZM46im2EkhBC0u2daFDInR8NZNT"
+    ]
+  },
+  {
+    "query": "cpu scheduling algorithms in os",
+    "relevant_file_ids": [
+      "19xvZ_wYWjmWueGvrAilgWWBsv55vvzFV",
+      "19nkEvS1NyeoJH8_rrM4TLoyoFk58PmhG"
+    ]
+  },
+  {
+    "query": "process management in os",
+    "relevant_file_ids": [
+      "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo",
+      "19nkEvS1NyeoJH8_rrM4TLoyoFk58PmhG"
+    ]
+  },
+  {
+    "query": "encapsulation and abstraction in oop",
+    "relevant_file_ids": [
+      "142nboDIPD_59vD9vhKEiyQV7wAKl0Eux",
+      "14-ct6jf_KMMVTT_HiN2Hp8mP3fNuMPBM"
+    ]
+  },
+  {
+    "query": "polymorphism in java",
+    "relevant_file_ids": [
+      "13vxHnx5C09ILSKSOrttBUwesGopwEtk7",
+      "13sQtDccQOZ9zJxrSiLRrh12AUauxYTM3"
+    ]
+  },
+  {
+    "query": "advantages and disadvantages of AI",
+    "relevant_file_ids": [
+      "17zxflrVV_JesgzOglDGwo59On6lVf44u",
+      "18SlFiWJxnxdbUan5VUevHk5EbSeW8g1M",
+      "18Nn7Ggx4EJQQh-KuSbqNL3vbG92ts-d-"
+    ]
+  },
+  {
+    "query": "classification algorithms in ML",
+    "relevant_file_ids": [
+      "18q0OLN7FAh_xn2sJGAvcMfDkJbN4ePky",
+      "1945bmOo9faL3yR852KzHGBpnssazOslz",
+      "198YDI9fWeKeaYtyiRGZWL0E7589YFFOG"
+    ]
+  },
+  {
+    "query": "clustering techniques in machine learning",
+    "relevant_file_ids": [
+      "198YDI9fWeKeaYtyiRGZWL0E7589YFFOG",
+      "19f8PE7Y2LTryanWb9msBL3DGMsqZYwSP"
+    ]
+  },
+  {
+    "query": "types of operating systems",
+    "relevant_file_ids": [
+      "19igQBy01UxW24n-aKtxSCi4RMh_vHjJo",
+      "19xvZ_wYWjmWueGvrAilgWWBsv55vvzFV"
+    ]
+  },
+  {
+    "query": "deadlock prevention in os",
+    "relevant_file_ids": [
+      "19niwohZZSHnaKlRmRnMSN7Ny6HfbyXM2",
+      "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj"
+    ]
+  },
+  {
+    "query": "file system in operating systems",
+    "relevant_file_ids": [
+      "19ipXGZp4-IObjOJYhYOeRoOd9wrmwBAj",
+      "19laj5gWKiUazlrB_oWSaehRMiA1Gwb2P"
+    ]
+  },
+  {
+    "query": "object-oriented design patterns",
+    "relevant_file_ids": [
+      "13vxHnx5C09ILSKSOrttBUwesGopwEtk7",
+      "13sQtDccQOZ9zJxrSiLRrh12AUauxYTM3"
+    ]
+  },
+  {
+    "query": "modularity in software engineering",
+    "relevant_file_ids": [
+      "18adTpglvXU6w5n9iyE8hEtYhhE8tIfE3",
+      "18ZOWTaWkk4HqQQ68ExOnTp9tgODPA48T"
+    ]
+  },
+  {
+    "query": "relational model in DBMS",
+    "relevant_file_ids": [
+      "1AZCc1-jYYGM720FJMgxrThKSxfmGINma",
+      "1AYT1J9VDCcrLNrYqfyMGIMVgKeRwVh0j"
+    ]
+  },
+  {
+    "query": "query processing in DBMS",
+    "relevant_file_ids": [
+      "1AdR3pGsNZ2qvdnfNCv5wp_u2op12gBn6",
+      "1AzjyW_DQIo8IECxRNQQalFsX6YTv7-EW"
+    ]
+  },
+  {
+    "query": "OSI model in computer networks",
+    "relevant_file_ids": [
+      "1ABQyUYCrs22E0J9pdxITg9n9u7B3shYp",
+      "1B-c4Zoy15OzNVvwIa-p646lUwPA845TN",
+      "1B-O9kI-FL6mSSewOk6zFlU7REAavcmep"
+    ]
+  },
+  {
+    "query": "networking layers and protocols",
+    "relevant_file_ids": [
+      "1B4cs8JNJnYoWVe6R8dVl9u91fWFxMtJx",
+      "1B09h_7Uh-8g3xxwLv7JfKP0w0NedaTg0"
+    ]
+  },
+  {
+    "query": "multiplexing techniques in data communication",
+    "relevant_file_ids": [
+      "1AGE_pry8vgGFnM3v-3XLYdp99J9Fs6va"
+    ]
+  },
+  {
+    "query": "Boolean algebra in digital electronics",
+    "relevant_file_ids": [
+      "1AVDJY1ls2ojZrLVg7tiPVOLKnfw9-W_L",
+      "1AROfYKrdZOcC6ANZ2kRCCQmmWmFz9Uuy"
+    ]
+  },
+  {
+    "query": "software requirement specification",
+    "relevant_file_ids": [
+      "18WDOxQkrUyOX1LF7rCNk-N6ZLiU-hlqi",
+      "18hEdt4HySirNWZYORinNjCpDRBEYxUDw"
+    ]
+  },
+   {
+    "query": "श्यानता क्या है",
+    "relevant_file_ids": [
+      "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+    ]
+  },
+  {
+    "query": "द्रव की श्यानता शक्ति",
+    "relevant_file_ids": [
+      "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+    ]
+  },
+  {
+    "query": "रेनरे ल्ड्स संख्या",
+    "relevant_file_ids": [
+      "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+    ]
+  },
+  {
+    "query": "स्टोक्स का नियम",
+    "relevant_file_ids": [
+      "1_yEmRU0BuzbymazAbuthtfzJWrEA2kbg"
+    ]
+  },
+  {
+    "query": "पृष्ठ तनाव क्या है",
+    "relevant_file_ids": [
+      "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV"
+    ]
+  },
+  {
+    "query": "पृष्ठ तनाव के कारण",
+    "relevant_file_ids": [
+      "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV"
+    ]
+  },
+  {
+    "query": "पृष्ठ तनाव पर तापमान का प्रभाव",
+    "relevant_file_ids": [
+      "1a0OdDarfSIpoLCyYG6SVvNdDoU1PXVzV"
+    ]
+  },
+  {
+    "query": "प्लवन का नियम",
+    "relevant_file_ids": [
+      "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+    ]
+  },
+  {
+    "query": "उत्प्लावन बल क्या है",
+    "relevant_file_ids": [
+      "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+    ]
+  },
+  {
+    "query": "आर्कमिडीज का सिद्धांत",
+    "relevant_file_ids": [
+      "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+    ]
+  },
+  {
+    "query": "मित केन्द्र क्या है",
+    "relevant_file_ids": [
+      "1a3hzhB6QDPqtvJc5SIWpINgIKSZIQOwd"
+    ]
+  },
+  {
+    "query": "न्यूटन का गुरुत्वाकर्षण नियम",
+    "relevant_file_ids": [
+      "1a3xGZpZExMKd6dN22tJs1GcMZhAZY5JT"
+    ]
+  },
+  {
+    "query": "गुरुत्वजनित त्वरण g",
+    "relevant_file_ids": [
+      "1a3xGZpZExMKd6dN22tJs1GcMZhAZY5JT"
+    ]
+  },
+  {
+    "query": "केप्लर के नियम हिंदी",
+    "relevant_file_ids": [
+      "1a3xGZpZExMKd6dN22tJs1GcMZhAZY5JT"
+    ]
+  },
+  {
+    "query": "पलायन वेग क्या है",
+    "relevant_file_ids": [
+      "1a3xGZpZExMKd6dN22tJs1GcMZhAZY5JT"
+    ]
+  },
+  {
+    "query": "कोई वस्तु बल के बावजूद कार्य क्यों नहीं करती?",
+    "relevant_file_ids": ["1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"]
+  },
+  {
+    "query": "जब कोई वस्तु स्थिर रहती है तब भी उसमें ऊर्जा होती है क्या?",
+    "relevant_file_ids": ["1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"]
+  },
+  {
+    "query": "हम ऊष्मा, ध्वनि और प्रकाश को ऊर्जा कैसे मान सकते हैं?",
+    "relevant_file_ids": ["1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"]
+  },
+  {
+    "query": "ऊर्जा और शक्ति में फर्क क्यों होता है जब दोनों जूल में मापे जाते हैं?",
+    "relevant_file_ids": ["1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"]
+  },
+  {
+    "query": "सौर पैनल में ऊर्जा का रूपांतरण कैसे होता है?",
+    "relevant_file_ids": ["1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"]
+  },
+  {
+    "query": "वृत्ताकार गति करते समय वस्तु किन बलों के अधीन होती है?",
+    "relevant_file_ids": ["1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"]
+  },
+  {
+    "query": "न्यूटन का तीसरा नियम रॉकेट लॉन्च में कैसे लागू होता है?",
+    "relevant_file_ids": ["1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"]
+  },
+  {
+    "query": "कंपन गति और आवर्ती गति में क्या अंतर होता है?",
+    "relevant_file_ids": ["1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"]
+  },
+  {
+    "query": "चलती ट्रेन के अचानक रुकने पर यात्री आगे क्यों झुकते हैं?",
+    "relevant_file_ids": ["1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"]
+  },
+  {
+    "query": "घड़ी की सुई की गति किस श्रेणी में आती है?",
+    "relevant_file_ids": ["1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"]
+  },
+  {
+    "query": "अगर कोई वस्तु दोलन कर रही हो तो उसका गुरुत्वकेंद्र कैसा होता है?",
+    "relevant_file_ids": ["1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"]
+  },
+  {
+    "query": "पानी से बिजली बनाने में कौन-कौन सी ऊर्जा बदलती है?",
+    "relevant_file_ids": ["1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"]
+  },
+  {
+    "query": "ट्रेन की गति को बढ़ाने में चालक को क्यों ज्यादा शक्ति लगानी पड़ती है?",
+    "relevant_file_ids": ["1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"]
+  },
+  {
+    "query": "कोनसे नियम से ये साबित होता है की वस्तु विराम में तब तक रहती है जब तक बल न लगे?",
+    "relevant_file_ids": ["1_x26SBBkhdBYLD48HAaevT0RR-vFepsV"]
+  },
+  {
+    "query": "ऊर्जा को नष्ट न कर पाने की बात कौन सा नियम करता है?",
+    "relevant_file_ids": ["1a4V2TXDfV-3LcyPChMmRCEO4S_Ksa_Rp"]
   }
+
+
 ]
