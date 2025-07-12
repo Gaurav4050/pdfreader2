@@ -12,6 +12,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 import uuid
 import re
+from selenium.webdriver.common.by import By
 
 TEMP_DIR = "temp_pdfs"
 os.makedirs(TEMP_DIR, exist_ok=True)
@@ -91,6 +92,31 @@ def download_pdf_from_url(url: str, save_dir: str) -> str | None:
         print(f"Download error: {e}")
         return None
 
+
+def extract_file_ids_and_names(folder_url: str):
+    chrome_options = Options()
+    chrome_options.add_argument("--headless=new")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    driver.get(folder_url)
+    time.sleep(5)  # Allow page to load
+
+    results = []
+
+    try:
+        items = driver.find_elements(By.CSS_SELECTOR, 'div[data-id]')
+        for item in items:
+            file_id = item.get_attribute("data-id")
+            file_name = item.get_attribute("aria-label") or item.text.strip()
+            if file_id and file_name:
+                results.append({"file_id": file_id, "file_name": file_name})
+    except Exception as e:
+        print("Error while extracting file details:", e)
+
+    driver.quit()
+    return results
 
 
 def ingest_from_drive_folder(folder_url: str):
@@ -197,3 +223,4 @@ def ingest_single_public_pdf(pdf_url: str):
     })
 
     print(f"✅ Ingested {len(chunks)} chunks for file: {file_id}")
+
