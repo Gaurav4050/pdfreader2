@@ -1,6 +1,9 @@
-def summarize_results_with_gemini(query: str, grouped_results: list, api_key: str) -> dict:
+
+from utils.llm_client import TextGenerator
+
+def summarize_results_with_model(query: str, grouped_results: list, api_key: str) -> dict:
     import google.generativeai as genai
-    print("Summarizing results with Gemini...")
+    print("Summarizing results with Model...")
     genai.configure(api_key=api_key)
     
     # Combine top chunks into a single context string
@@ -55,8 +58,10 @@ Please follow these strict formatting and response guidelines:
 ## Markdown Answer
 """
 
-    model = genai.GenerativeModel("gemini-1.5-pro")
-    response = model.generate_content(prompt)
+    model = TextGenerator(
+        api_key=api_key
+    )
+    response = model.run(prompt)
 
     return {
         "markdown": response.text

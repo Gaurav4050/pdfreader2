@@ -1,6 +1,6 @@
-def summarize_keyword_results_with_gemini(query: str, matched_chunks: list, api_key: str) -> dict:
-    import google.generativeai as genai
-    genai.configure(api_key=api_key)
+from utils.llm_client import TextGenerator
+
+def summarize_keyword_results_with_model(query: str, matched_chunks: list, api_key: str) -> dict:
 
     # Combine top 20 matched chunks
     context_text = "\n\n".join(chunk.get("chunk", "") for chunk in matched_chunks[:20])
@@ -42,8 +42,10 @@ You are a helpful assistant. Based on the following text chunks, extract the **m
 ## Keyword-Based Highlights
 """
 
-    model = genai.GenerativeModel("gemini-1.5-pro")
-    response = model.generate_content(prompt)
+    model = TextGenerator(
+        api_key=api_key
+    )
+    response = model.run(prompt)
 
     return {
         "markdown": response.text

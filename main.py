@@ -4,12 +4,12 @@ from ingest.drive_folder_ingest import ingest_from_drive_folder, extract_file_id
 from utils.get_query_embedding import get_query_embedding
 from utils.serach_chunks import search_chunks
 from utils.group_by_file_id import group_by_file_id
-from utils.summarize_results_with_gemini import summarize_results_with_gemini
-from utils.summarize_keyword_results_with_gemini import summarize_keyword_results_with_gemini
+from utils.summarize_results_with_model import summarize_results_with_model
+from utils.summarize_keyword_results_with_model import summarize_keyword_results_with_model
 import os
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Literal
-from utils.rerank_results_with_gemini import rerank_results_with_gemini_parallel
+from utils.rerank_results_with_model import rerank_results_with_model_parallel
 import requests
 from sklearn.metrics import precision_score, recall_score, f1_score
 from typing import List, Dict
@@ -17,6 +17,7 @@ import json
 app = FastAPI()
 from fastapi.responses import JSONResponse
 from pathlib import Path
+import uvicorn
 
 app.add_middleware(
     CORSMiddleware,
@@ -69,7 +70,7 @@ def semantic_search(req: QueryRequest):
 
         #rerank_results_with_gemini
         try:
-            reranked_results = rerank_results_with_gemini_parallel(req.query, raw_results, api_key, top_k=10)
+            reranked_results = rerank_results_with_model_parallel(req.query, raw_results, api_key, top_k=10)
         except Exception as e:
             print(f"Error during reranking: {e}")
             raise HTTPException(status_code=500, detail="Failed to rerank results with Gemini.")
@@ -78,9 +79,9 @@ def semantic_search(req: QueryRequest):
         top_results = group_by_file_id(reranked_results)
         # 🧠 Summarize differently based on mode
         if req.mode == "conceptual":
-            summary = summarize_results_with_gemini(req.query, top_results, api_key)
+            summary = summarize_results_with_model(req.query, top_results, api_key)
         elif req.mode == "keyword":
-            summary = summarize_keyword_results_with_gemini(req.query, raw_results, api_key)
+            summary = summarize_keyword_results_with_model(req.query, raw_results, api_key)
         else:
             raise HTTPException(status_code=400, detail="Invalid search mode. Use 'conceptual' or 'keyword'.")
 
@@ -191,3 +192,5 @@ class EvalItem(BaseModel):
 
 class EvalBatchRequest(BaseModel):
     queries: List[EvalItem]
+
+
