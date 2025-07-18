@@ -17,21 +17,50 @@ from selenium.webdriver.common.by import By
 TEMP_DIR = "temp_pdfs"
 os.makedirs(TEMP_DIR, exist_ok=True)
 
+# def extract_file_ids_from_folder(folder_url):
+#     from selenium.webdriver.common.by import By
+
+#     chrome_options = Options()
+#     chrome_options.add_argument("--headless=new")  # Required for newer headless Chrome
+#     chrome_options.add_argument("--no-sandbox")
+#     chrome_options.add_argument("--disable-dev-shm-usage")
+
+#     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+#     driver.get(folder_url)
+#     time.sleep(5)  # Wait for JS-rendered content
+
+#     file_ids = set()
+
+#     # Files are rendered as elements with data-id attributes
+#     try:
+#         items = driver.find_elements(By.CSS_SELECTOR, 'div[data-id]')
+#         for item in items:
+#             file_id = item.get_attribute("data-id")
+#             if file_id:
+#                 file_ids.add(file_id)
+#     except Exception as e:
+#         print("Error while extracting file ids:", e)
+
+#     driver.quit()
+#     return list(file_ids)
+
+
 def extract_file_ids_from_folder(folder_url):
-    from selenium.webdriver.common.by import By
-
     chrome_options = Options()
-    chrome_options.add_argument("--headless=new")  # Required for newer headless Chrome
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.binary_location = "/usr/bin/google-chrome"  # ✅ Required for Render
+    chrome_options.add_argument("--headless=new")              # ✅ Newer headless mode
+    chrome_options.add_argument("--no-sandbox")                # ✅ Required for sandboxed servers
+    chrome_options.add_argument("--disable-dev-shm-usage")     # ✅ Avoid shared memory crash
 
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    driver = webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()),
+        options=chrome_options
+    )
+
     driver.get(folder_url)
-    time.sleep(5)  # Wait for JS-rendered content
+    time.sleep(5)
 
     file_ids = set()
-
-    # Files are rendered as elements with data-id attributes
     try:
         items = driver.find_elements(By.CSS_SELECTOR, 'div[data-id]')
         for item in items:
@@ -43,6 +72,7 @@ def extract_file_ids_from_folder(folder_url):
 
     driver.quit()
     return list(file_ids)
+
 
 def download_pdf_by_id(file_id, dest_folder="downloads"):
     try:
