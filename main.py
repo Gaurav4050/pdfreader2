@@ -1,6 +1,6 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from pydantic import BaseModel
-from ingest.drive_folder_ingest import ingest_from_drive_folder, extract_file_ids_and_names, ingest_single_public_pdf
+from ingest.drive_folder_ingest import ingest_from_drive_folder_enhanced
 from utils.get_query_embedding import get_query_embedding
 from utils.serach_chunks import search_chunks
 from utils.group_by_file_id import group_by_file_id
@@ -18,6 +18,10 @@ app = FastAPI()
 from fastapi.responses import JSONResponse
 from pathlib import Path
 import uvicorn
+import pandas as pd
+from concurrent.futures import ThreadPoolExecutor
+import asyncio
+import math
 
 app.add_middleware(
     CORSMiddleware,
@@ -41,13 +45,13 @@ class QueryRequest(BaseModel):
 
 @app.post("/ingest-drive-folder")
 def ingest_drive_folder(req: IngestRequest):
-    ingest_from_drive_folder(req.folder_url)
+    ingest_from_drive_folder_enhanced(req.folder_url)
     return {"status": "success", "message": "Folder ingested"}
 
-@app.post("/ingest-single-public-pdf")
-def ingest_single_pdf(req: IngestRequestSingle):
-    ingest_single_public_pdf(req.pdf_url)
-    return {"status": "success", "message": "Single public PDF ingested"}
+# @app.post("/ingest-single-public-pdf")
+# def ingest_single_pdf(req: IngestRequestSingle):
+#     ingest_single_public_pdf(req.pdf_url)
+#     return {"status": "success", "message": "Single public PDF ingested"}
 
 
 
@@ -174,16 +178,175 @@ def evaluate_ground_truth():
 
 
 
-@app.get("/list-drive-files/")
-def list_drive_files(folder_url: str):
-    """
-    Extract and return list of files (file_id + file_name) from a Google Drive folder.
-    """
+
+def get_predicted_file_ids(query: str) -> List[str]:
+    print("Processing query:", query)
+
+    embedding = get_query_embedding(query)
+    if not embedding:
+        print(f"Failed to generate embedding for query: {query}")
+        raise HTTPException(status_code=400, detail="Failed to generate embedding.")
+
+    raw_results = search_chunks(embedding)
+    if not raw_results:
+        print(f"No raw results found for query: {query}")
+        return []
+
+    api_key = os.getenv("GEMINI_API_KEY")
     try:
-        files = extract_file_ids_and_names(folder_url)
-        return JSONResponse(content={"count": len(files), "files": files})
+        reranked_results = rerank_results_with_model_parallel(query, raw_results, api_key, top_k=20)
     except Exception as e:
-        return JSONResponse(status_code=500, content={"error": str(e)})
+        raise HTTPException(status_code=500, detail=f"Reranking failed: {e}")
+
+    top_results = group_by_file_id(reranked_results)
+    file_ids = [r["file_id"] for r in top_results]
+    return file_ids
+
+# -----------------------
+# Async wrapper for ThreadPoolExecutor
+# -----------------------
+executor = ThreadPoolExecutor(max_workers=10)  # adjust based on CPU/network
+
+async def get_predicted_file_ids_async(query: str) -> List[str]:
+    loop = asyncio.get_event_loop()
+    return await loop.run_in_executor(executor, get_predicted_file_ids, query)
+
+# -----------------------
+# Metrics calculation
+# -----------------------
+def precision_recall(predicted, expected):
+    if not predicted:
+        return 0, 0
+    relevant_retrieved = sum([1 for p in predicted if p in expected])
+    precision = relevant_retrieved / len(predicted)
+    recall = relevant_retrieved / len(expected) if expected else 0
+    return precision, recall
+
+def average_precision(predicted, expected):
+    ap = 0
+    relevant_count = 0
+    for i, p in enumerate(predicted):
+        if p in expected:
+            relevant_count += 1
+            ap += relevant_count / (i + 1)
+    return ap / len(expected) if expected else 0
+
+def reciprocal_rank(predicted, expected):
+    for i, p in enumerate(predicted):
+        if p in expected:
+            return 1 / (i + 1)
+    return 0
+
+def ndcg(predicted, expected):
+    dcg = 0
+    for i, p in enumerate(predicted):
+        if p in expected:
+            dcg += 1 / math.log2(i + 2)  # rank starts at 1
+    ideal_dcg = sum([1 / math.log2(i + 2) for i in range(len(expected))])
+    return dcg / ideal_dcg if ideal_dcg > 0 else 0
+
+# -----------------------
+# Process single query
+# -----------------------
+async def process_query(query: str, expected_ids: List[str]):
+    try:
+        predicted_ids = await get_predicted_file_ids_async(query)
+
+        score_per_id = [1 if eid in predicted_ids else 0 for eid in expected_ids]
+        avg_score = sum(score_per_id) / len(score_per_id) if score_per_id else 0
+
+        precision, recall = precision_recall(predicted_ids, expected_ids)
+        ap = average_precision(predicted_ids, expected_ids)
+        rr = reciprocal_rank(predicted_ids, expected_ids)
+        ndcg_score = ndcg(predicted_ids, expected_ids)
+
+        print(f"Processed query '{query}' | Avg score: {round(avg_score,3)} | Precision: {precision:.3f}, Recall: {recall:.3f}")
+
+        return {
+            "query": query,
+            "expected": expected_ids,
+            "predicted": predicted_ids,
+            "score_per_id": score_per_id,
+            "average_score": round(avg_score, 3),
+            "precision": round(precision, 3),
+            "recall": round(recall, 3),
+            "average_precision": round(ap, 3),
+            "reciprocal_rank": round(rr, 3),
+            "ndcg": round(ndcg_score, 3)
+        }
+
+    except Exception as e:
+        print(f"Error processing query '{query}': {e}")
+        return {
+            "query": query,
+            "expected": expected_ids,
+            "error": str(e)
+        }
+
+# -----------------------
+# Evaluate Excel endpoint
+# -----------------------
+@app.post("/evaluate-excel")
+async def evaluate_excel(file: UploadFile = File(...)):
+    try:
+        print(f"Received file: {file.filename}")
+        df = pd.read_excel(file.file, engine="openpyxl")
+
+        if "query" not in df.columns or "expected_ids" not in df.columns:
+            print("Excel missing required columns: 'query' and 'expected_ids'")
+            raise HTTPException(
+                status_code=400,
+                detail="Excel must have 'query' and 'expected_ids' columns"
+            )
+
+        tasks = []
+        for _, row in df.iterrows():
+            query = row["query"]
+            expected_ids = str(row["expected_ids"]).split(",")
+            expected_ids = [eid.strip() for eid in expected_ids if eid.strip()]
+            tasks.append(process_query(query, expected_ids))
+
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+
+        # Calculate overall metrics
+        def average_metric(results, key):
+            vals = [r[key] for r in results if isinstance(r, dict) and key in r]
+            return round(sum(vals)/len(vals), 3) if vals else 0
+
+        overall_metrics = {
+            "overall_average_score": average_metric(results, "average_score"),
+            "precision": average_metric(results, "precision"),
+            "recall": average_metric(results, "recall"),
+            "MAP": average_metric(results, "average_precision"),
+            "MRR": average_metric(results, "reciprocal_rank"),
+            "NDCG": average_metric(results, "ndcg")
+        }
+
+        print(f"Finished processing Excel. Overall metrics: {overall_metrics}")
+
+        return {
+            "overall_metrics": overall_metrics,
+            "details": results
+        }
+
+    except Exception as e:
+        print(f"Error in /evaluate-excel: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+
+
+
+# @app.get("/list-drive-files/")
+# def list_drive_files(folder_url: str):
+#     """
+#     Extract and return list of files (file_id + file_name) from a Google Drive folder.
+#     """
+#     try:
+#         files = extract_file_ids_and_names(folder_url)
+#         return JSONResponse(content={"count": len(files), "files": files})
+#     except Exception as e:
+#         return JSONResponse(status_code=500, content={"error": str(e)})
 
 
 # Define request format
