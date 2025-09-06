@@ -25,7 +25,7 @@ class MilvusClient:
             FieldSchema(name="pdf_id", dtype=DataType.VARCHAR, max_length=100, is_primary=True, auto_id=False),
             FieldSchema(name="file_id", dtype=DataType.VARCHAR, max_length=2048),
             FieldSchema(name="chunk", dtype=DataType.VARCHAR, max_length=8192),
-            FieldSchema(name="embedding", dtype=DataType.FLOAT_VECTOR, dim=384),
+            FieldSchema(name="embedding", dtype=DataType.FLOAT_VECTOR, dim=768),
         ]
         schema = CollectionSchema(fields, description="PDF Embeddings")
         collection = Collection(name=self.collection_name, schema=schema)
