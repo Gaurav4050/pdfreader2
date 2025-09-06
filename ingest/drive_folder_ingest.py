@@ -10,13 +10,13 @@ import pytesseract
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
-from sentence_transformers import SentenceTransformer
-
 from utils.hash_utils import sha256_checksum, is_already_processed, mark_as_processed
 from vectorstore.milvus_client import MilvusClient
 from indicnlp.normalize.indic_normalize import IndicNormalizerFactory
 from utils.llm_client import TextGenerator
 import base64
+import numpy as np
+import google.generativeai as genai
 
 
 # -------------------------------------------------
@@ -149,9 +149,11 @@ class EnhancedPDFProcessor:
 # -------------------------------------------------
 class EmbeddingGenerator:
     def __init__(self):
-        self.model = SentenceTransformer(
-            "sentence-transformers/paraphrase-MiniLM-L6-v2"
-        )
+        # Initialize Gemini API for embeddings
+        self.api_key = os.getenv("GEMINI_API_KEY")
+        if not self.api_key:
+            raise ValueError("GEMINI_API_KEY not found in environment.")
+        genai.configure(api_key=self.api_key)
 
     def chunk_text_by_tokens(self, text, max_tokens=256):
         words, chunks, current = text.split(), [], []
@@ -165,7 +167,40 @@ class EmbeddingGenerator:
         return chunks
 
     def generate_embeddings(self, chunks):
-        return self.model.encode(chunks, convert_to_numpy=True)
+        # Generate 768-dimensional embeddings using Gemini embedding-001 model
+        embeddings = []
+        for chunk in chunks:
+            try:
+                response = genai.embed_content(
+                    model="models/embedding-001",
+                    content=chunk,
+                    task_type="retrieval_query",
+                    output_dimensionality=768
+                )
+                embeddings.append(response['embedding'])
+            except Exception as e:
+                logger.error(f"Gemini embedding generation failed: {e}")
+                # Return a zero vector as fallback
+                embeddings.append(np.zeros(768))
+        return np.array(embeddings)
+
+    def generate_gemini_embeddings(self, chunks):  # Keeping for backward compatibility
+        # Generate 768-dimensional embeddings using Gemini embedding-001 model
+        embeddings = []
+        for chunk in chunks:
+            try:
+                response = genai.embed_content(
+                    model="models/embedding-001",
+                    content=chunk,
+                    task_type="retrieval_query",
+                    output_dimensionality=768
+                )
+                embeddings.append(response['embedding'])
+            except Exception as e:
+                logger.error(f"Gemini embedding generation failed: {e}")
+                # Return a zero vector as fallback
+                embeddings.append(np.zeros(768))
+        return np.array(embeddings)
 
 
 # -------------------------------------------------
@@ -231,10 +266,10 @@ def get_service_account_path():
 # -------------------------------------------------
 def ingest_from_drive_folder_enhanced(folder_url, service_account_path=None, api_key=None):
     logger.info(f"🚀 Starting ingestion from: {folder_url}")
-    service_account_path = get_service_account_path()
+    # service_account_path = get_service_account_path()
 
     # for local testing
-    # service_account_path="./pdfreadergenai-dd6b7e9bb5ab.json"
+    service_account_path="./pdfreadergenai-dd6b7e9bb5ab.json"
     try:
         drive = GoogleDriveAPIClient(service_account_path, api_key)
         processor = EnhancedPDFProcessor()
