@@ -1,256 +1,299 @@
 import os
-import requests
-from bs4 import BeautifulSoup
-from utils.hash_utils import sha256_checksum, is_already_processed, mark_as_processed
-from utils.pdf_utils import extract_text_from_pdf
-from embedding.generator import EmbeddingGenerator
-from vectorstore.milvus_client import MilvusClient
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
-import time
-import uuid
 import re
-from selenium.webdriver.common.by import By
+import io
+import uuid
+import logging
+import fitz  # PyMuPDF
+import unicodedata
+from PIL import Image
+import pytesseract
+from google.oauth2.service_account import Credentials
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaIoBaseDownload
+from sentence_transformers import SentenceTransformer
+
+from utils.hash_utils import sha256_checksum, is_already_processed, mark_as_processed
+from vectorstore.milvus_client import MilvusClient
+from indicnlp.normalize.indic_normalize import IndicNormalizerFactory
+from utils.llm_client import TextGenerator
+import base64
+
+
+# -------------------------------------------------
+# Logging setup
+# -------------------------------------------------
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 TEMP_DIR = "temp_pdfs"
 os.makedirs(TEMP_DIR, exist_ok=True)
 
-# def extract_file_ids_from_folder(folder_url):
-#     from selenium.webdriver.common.by import By
 
-#     chrome_options = Options()
-#     chrome_options.add_argument("--headless=new")  # Required for newer headless Chrome
-#     chrome_options.add_argument("--no-sandbox")
-#     chrome_options.add_argument("--disable-dev-shm-usage")
+# -------------------------------------------------
+# PDF Processor
+# -------------------------------------------------
+class EnhancedPDFProcessor:
+    def __init__(self):
+        self.languages = "eng+hin+urd+ben+guj+pan+tam+tel+kan+mal+ori+asm"
+        self.tesseract_config = "--oem 3 --psm 6"
 
-#     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
-#     driver.get(folder_url)
-#     time.sleep(5)  # Wait for JS-rendered content
+        # 👉 NEW: Hindi normalizer instance
+        factory = IndicNormalizerFactory()
+        self.hindi_normalizer = factory.get_normalizer("hi")
 
-#     file_ids = set()
+        # Initialize Gemini client
+        api_key = os.getenv("GEMINI_API_KEY")
+        if not api_key:
+            raise ValueError("GEMINI_API_KEY not found in environment.")
+        self.text_generator = TextGenerator(api_key)
 
-#     # Files are rendered as elements with data-id attributes
-#     try:
-#         items = driver.find_elements(By.CSS_SELECTOR, 'div[data-id]')
-#         for item in items:
-#             file_id = item.get_attribute("data-id")
-#             if file_id:
-#                 file_ids.add(file_id)
-#     except Exception as e:
-#         print("Error while extracting file ids:", e)
+    def clean_text(self, text: str) -> str:
+        """
+        Clean extracted text: remove [UNK], �, normalize Unicode, Indic normalization.
+        Works for both Hindi and English.
+        """
+        if not text:
+            return ""
 
-#     driver.quit()
-#     return list(file_ids)
+        # Remove tokenizer junk
+        text = text.replace("[UNK]", "")
+
+        # Normalize Unicode (NFC form)
+        text = unicodedata.normalize("NFC", text)
+
+        # Remove replacement characters
+        text = text.replace("�", "")
+
+        # Remove weird control characters
+        text = re.sub(r"[\x00-\x1F\x7F]", " ", text)
+
+        # Collapse multiple spaces
+        text = re.sub(r"\s+", " ", text).strip()
+
+        # 👉 Apply Indic normalization (mainly helps for Hindi/Indic scripts)
+        try:
+            text = self.hindi_normalizer.normalize(text)
+        except Exception as e:
+            logger.warning(f"Indic normalization failed: {e}")
+
+        return text
+
+    def is_text_readable(self, text, min_readable_ratio=0.3):
+        if not text or len(text.strip()) < 10:
+            return False
+        meaningful_chars = sum(
+            c.isalnum() or c.isspace() or "\u0900" <= c <= "\u0D7F" for c in text
+        )
+        ratio = meaningful_chars / len(text)
+        return ratio >= min_readable_ratio
+
+    def extract_text_with_pymupdf(self, pdf_path):
+        try:
+            doc = fitz.open(pdf_path)
+            text = "\n".join(page.get_text() for page in doc)
+            doc.close()
+            return self.clean_text(text)
+        except Exception as e:
+            logger.error(f"PyMuPDF extraction failed: {e}")
+            return ""
+
+    def enhance_image_for_ocr(self, image):
+        try:
+            if image.mode != "L":
+                image = image.convert("L")
+            from PIL import ImageEnhance, ImageFilter
+
+            image = ImageEnhance.Contrast(image).enhance(2.0)
+            image = image.filter(ImageFilter.SHARPEN)
+
+            w, h = image.size
+            if w < 1000:
+                scale = 1000 / w
+                image = image.resize(
+                    (int(w * scale), int(h * scale)), Image.Resampling.LANCZOS
+                )
+            return image
+        except Exception as e:
+            logger.error(f"Image enhancement failed: {e}")
+            return image
+
+    def extract_text_with_ocr(self, pdf_path):
+        try:
+            doc = fitz.open(pdf_path)
+            text = ""
+            for page_num in range(len(doc)):
+                page = doc.load_page(page_num)
+                pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
+                img = Image.open(io.BytesIO(pix.tobytes("png")))
+                img = self.enhance_image_for_ocr(img)
+                page_text = pytesseract.image_to_string(
+                    img, lang=self.languages, config=self.tesseract_config
+                )
+                text += page_text + "\n"
+            doc.close()
+            return self.clean_text(text)
+        except Exception as e:
+            logger.error(f"OCR failed: {e}")
+            return ""
+
+    def extract_text_smart(self, pdf_path):
+        logger.info(f"Extracting text from {pdf_path}")
+        text = self.extract_text_with_pymupdf(pdf_path)
+        if self.is_text_readable(text):
+            return text
+        return self.extract_text_with_ocr(pdf_path)
 
 
-def extract_file_ids_from_folder(folder_url):
-    chrome_options = Options()
-    chrome_options.binary_location = "/usr/bin/google-chrome"  # ✅ Required for Render
-    chrome_options.add_argument("--headless=new")              # ✅ Newer headless mode
-    chrome_options.add_argument("--no-sandbox")                # ✅ Required for sandboxed servers
-    chrome_options.add_argument("--disable-dev-shm-usage")     # ✅ Avoid shared memory crash
+# -------------------------------------------------
+# Embedding Generator
+# -------------------------------------------------
+class EmbeddingGenerator:
+    def __init__(self):
+        self.model = SentenceTransformer(
+            "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+        )
 
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()),
-        options=chrome_options
-    )
+    def chunk_text_by_tokens(self, text, max_tokens=256):
+        words, chunks, current = text.split(), [], []
+        for w in words:
+            if len(current) + 1 > max_tokens:
+                chunks.append(" ".join(current))
+                current = []
+            current.append(w)
+        if current:
+            chunks.append(" ".join(current))
+        return chunks
 
-    driver.get(folder_url)
-    time.sleep(5)
-
-    file_ids = set()
-    try:
-        items = driver.find_elements(By.CSS_SELECTOR, 'div[data-id]')
-        for item in items:
-            file_id = item.get_attribute("data-id")
-            if file_id:
-                file_ids.add(file_id)
-    except Exception as e:
-        print("Error while extracting file ids:", e)
-
-    driver.quit()
-    return list(file_ids)
+    def generate_embeddings(self, chunks):
+        return self.model.encode(chunks, convert_to_numpy=True)
 
 
-def download_pdf_by_id(file_id, dest_folder="downloads"):
-    try:
-        url = f"https://drive.google.com/uc?export=download&id={file_id}"
-        print(f"Downloading file ID: {file_id} from {url}")
-        response = requests.get(url)
-        os.makedirs(dest_folder, exist_ok=True)
-        file_path = os.path.join(dest_folder, f"{file_id}.pdf")
-        with open(file_path, "wb") as f:
-            f.write(response.content)
-        return file_path
-    except Exception as e:
-        print(f"Error downloading file ID {file_id}: {e}")
+# -------------------------------------------------
+# Google Drive API
+# -------------------------------------------------
+class GoogleDriveAPIClient:
+    def __init__(self, service_account_path=None, api_key=None):
+        if service_account_path and os.path.exists(service_account_path):
+            creds = Credentials.from_service_account_file(
+                service_account_path,
+                scopes=["https://www.googleapis.com/auth/drive.readonly"],
+            )
+            self.service = build("drive", "v3", credentials=creds)
+        elif api_key:
+            self.service = build("drive", "v3", developerKey=api_key)
+        else:
+            raise ValueError("Need service_account_path or api_key")
+
+    def extract_folder_id(self, folder_url):
+        patterns = [
+            r"/folders/([a-zA-Z0-9_-]+)",
+            r"id=([a-zA-Z0-9_-]+)",
+            r"/drive/folders/([a-zA-Z0-9_-]+)",
+        ]
+        for p in patterns:
+            m = re.search(p, folder_url)
+            if m:
+                return m.group(1)
         return None
 
-def extract_drive_file_id(url: str) -> str | None:
-    # Extract file ID using regex
-    match = re.search(r"/d/([a-zA-Z0-9_-]+)", url)
-    if match:
-        return match.group(1)
-    return None
+    def list_files_in_folder(self, folder_id, mime_type="application/pdf"):
+        try:
+            q = f"'{folder_id}' in parents and mimeType='{mime_type}'"
+            res = self.service.files().list(q=q, fields="files(id,name)").execute()
+            return res.get("files", [])
+        except Exception as e:
+            logger.error(f"List files failed: {e}")
+            return []
 
-
-def download_pdf_from_url(url: str, save_dir: str) -> str | None:
-    try:
-        file_id = extract_drive_file_id(url)
-        if not file_id:
-            print("❌ Invalid Google Drive link format.")
+    def download_file(self, file_id, dest_path):
+        try:
+            req = self.service.files().get_media(fileId=file_id)
+            with open(dest_path, "wb") as f:
+                downloader = MediaIoBaseDownload(f, req)
+                done = False
+                while not done:
+                    status, done = downloader.next_chunk()
+            return dest_path
+        except Exception as e:
+            logger.error(f"Download failed: {e}")
             return None
 
-        # Construct direct download link
-        download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
 
-        response = requests.get(download_url)
-        if response.status_code != 200:
-            print(f"❌ Failed to fetch file from Google Drive: HTTP {response.status_code}")
-            return None
+def get_service_account_path():
+    key_b64 = os.environ.get("GCP_KEY")
+    key_path = "/tmp/gcp-key.json"  # Render पर /tmp writable होता है
+    if key_b64:
+        with open(key_path, "wb") as f:
+            f.write(base64.b64decode(key_b64))
+    return key_path
+# -------------------------------------------------
+# Ingestion
+# -------------------------------------------------
+def ingest_from_drive_folder_enhanced(folder_url, service_account_path=None, api_key=None):
+    logger.info(f"🚀 Starting ingestion from: {folder_url}")
+    service_account_path = get_service_account_path()
 
-        # Use file_id as safe filename
-        filename = os.path.join(save_dir, f"{file_id}.pdf")
-
-        with open(filename, "wb") as f:
-            f.write(response.content)
-
-        return filename
-    except Exception as e:
-        print(f"Download error: {e}")
-        return None
-
-
-def extract_file_ids_and_names(folder_url: str):
-    chrome_options = Options()
-    chrome_options.add_argument("--headless=new")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
-    driver.get(folder_url)
-    time.sleep(5)  # Allow page to load
-
-    results = []
-
+    # for local testing
+    # service_account_path="./pdfreadergenai-dd6b7e9bb5ab.json"
     try:
-        items = driver.find_elements(By.CSS_SELECTOR, 'div[data-id]')
-        for item in items:
-            file_id = item.get_attribute("data-id")
-            file_name = item.get_attribute("aria-label") or item.text.strip()
-            if file_id and file_name:
-                results.append({"file_id": file_id, "file_name": file_name})
+        drive = GoogleDriveAPIClient(service_account_path, api_key)
+        processor = EnhancedPDFProcessor()
+        embedder = EmbeddingGenerator()
+        milvus = MilvusClient()
     except Exception as e:
-        print("Error while extracting file details:", e)
+        logger.error(f"Init failed: {e}")
+        return
 
-    driver.quit()
-    return results
+    folder_id = drive.extract_folder_id(folder_url)
+    if not folder_id:
+        logger.error("Invalid folder URL")
+        return
 
+    files = drive.list_files_in_folder(folder_id)
+    if not files:
+        logger.warning("No PDF files found")
+        return
 
-def ingest_from_drive_folder(folder_url: str):
-    print(f"Starting ingestion from folder: {folder_url}")
-    file_ids = extract_file_ids_from_folder(folder_url)
-    print(f"Found {len(file_ids)} files in the folder.")
-    for file_id in file_ids:
-        print(f"Processing file ID: {file_id}")
-    embedder = EmbeddingGenerator()
-    milvus = MilvusClient()
+    for i, f in enumerate(files, 1):
+        file_id, file_name = f["id"], f["name"]
+        logger.info(f"[{i}/{len(files)}] Processing {file_name}")
 
-    # download_pdf_by_id
-    for file_id in file_ids:
-        path = download_pdf_by_id(file_id, TEMP_DIR)
-        if not path:
-            print(f"❌ Failed to download file ID: {file_id}")
+        path = os.path.join(TEMP_DIR, f"{file_id}.pdf")
+        if not drive.download_file(file_id, path):
             continue
-        # checksum = sha256_checksum(path)
-        # if is_already_processed(checksum):
-        #     print(f"❌ Skipping duplicate: {file_id}")
-        #     continue
-        print(f"✅ Processing: {file_id}")
-        text = extract_text_from_pdf(path)
-        print(f"Extracted text from {file_id} with length {len(text)}")
-        chunks = embedder.chunk_text_by_tokens(text)
-        embeddings = embedder.generate_embeddings(chunks)
 
-        
-        pdf_ids = []
-        file_ids = []
-        chunks_list = []
-        embeddings_list = []
+        try:
+            text = processor.extract_text_smart(path)
+            if not text.strip():
+                continue
 
-        for chunk, embedding in zip(chunks, embeddings):
-            pdf_id = str(uuid.uuid4())  # Generate a unique PDF ID
-            pdf_ids.append(pdf_id)
-            file_ids.append(file_id)
-            chunks_list.append(chunk)
-            embeddings_list.append(embedding)
+            chunks = embedder.chunk_text_by_tokens(text)
+            embeddings = embedder.generate_embeddings(chunks)
 
-        milvus.insert({"pdf_id": pdf_ids,"file_id": file_ids,"chunk": chunks_list,"embedding": embeddings_list})
+            milvus.insert(
+                {
+                    "pdf_id": [str(uuid.uuid4()) for _ in chunks],
+                    "file_id": [file_id] * len(chunks),
+                    "chunk": chunks,
+                    "embedding": embeddings,
+                }
+            )
+            logger.info(f"✅ Ingested {len(chunks)} chunks for {file_name}")
 
+        except Exception as e:
+            logger.error(f"Error {file_name}: {e}")
+        finally:
+            if os.path.exists(path):
+                os.remove(path)
 
-        # mark_as_processed(checksum)
-
-    # for file_id in file_ids:
-    #     path = download_pdf_from_drive(file_id)
-    #     if not path:
-    #         continue
-    #     checksum = sha256_checksum(path)
-    #     if is_already_processed(checksum):
-    #         print(f"❌ Skipping duplicate: {file_id}")
-    #         continue
-    #     print(f"✅ Processing: {file_id}")
-    #     text = extract_text_from_pdf(path)
-    #     chunks = embedder.chunk_text_by_tokens(text)
-    #     embeddings = embedder.generate_embeddings(chunks)
-
-    #     for chunk, embedding in zip(chunks, embeddings):
-    #         milvus.insert({
-    #             "pdf_id": file_id,
-    #             "chunk": chunk,
-    #             "embedding": embedding
-    #         })
-    #     mark_as_processed(checksum)
+    logger.info("🎉 Ingestion completed!")
 
 
-
-def ingest_single_public_pdf(pdf_url: str):
-    print(f"📥 Starting ingestion for PDF URL: {pdf_url}")
-
-    path = download_pdf_from_url(pdf_url, TEMP_DIR)
-    if not path:
-        print(f"❌ Failed to download PDF from URL: {pdf_url}")
-        return
-
-    print(f"✅ Downloaded PDF to: {path}")
-
-    embedder = EmbeddingGenerator()
-    milvus = MilvusClient()
-
-    text = extract_text_from_pdf(path)
-    if not text.strip():
-        print("⚠️ Empty or unreadable text. Skipping.")
-        return
-
-    print(f"📚 Extracted {len(text)} characters from PDF")
-
-    chunks = embedder.chunk_text_by_tokens(text)  # enforce limit
-    embeddings = embedder.generate_embeddings(chunks)
-
-    if len(chunks) != len(embeddings):
-        print("❌ Mismatch between chunks and embeddings.")
-        return
-
-    pdf_id = str(uuid.uuid4())
-    file_id = os.path.basename(path)  # use filename as file_id
-
-    milvus.insert({
-        "pdf_id": [pdf_id] * len(chunks),
-        "file_id": [file_id] * len(chunks),  # ✅ THIS LINE FIXES THE ERROR
-        "chunk": chunks,
-        "embedding": embeddings,
-    })
-
-    print(f"✅ Ingested {len(chunks)} chunks for file: {file_id}")
-
+# -------------------------------------------------
+# Usage
+# -------------------------------------------------
+if __name__ == "__main__":
+    ingest_from_drive_folder_enhanced(
+        folder_url="https://drive.google.com/drive/folders/1tm8shLBaCtWBFhFoVEngsMxUSOHtCZ64?usp=sharing",
+        service_account_path="./pdfreadergenai-dd6b7e9bb5ab.json",
+    )
