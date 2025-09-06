@@ -266,10 +266,10 @@ def get_service_account_path():
 # -------------------------------------------------
 def ingest_from_drive_folder_enhanced(folder_url, service_account_path=None, api_key=None):
     logger.info(f"🚀 Starting ingestion from: {folder_url}")
-    # service_account_path = get_service_account_path()
+    service_account_path = get_service_account_path()
 
     # for local testing
-    service_account_path="./pdfreadergenai-dd6b7e9bb5ab.json"
+    # service_account_path="./pdfreadergenai-dd6b7e9bb5ab.json"
     try:
         drive = GoogleDriveAPIClient(service_account_path, api_key)
         processor = EnhancedPDFProcessor()
