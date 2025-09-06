@@ -150,7 +150,7 @@ class EnhancedPDFProcessor:
 class EmbeddingGenerator:
     def __init__(self):
         self.model = SentenceTransformer(
-            "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+            "sentence-transformers/paraphrase-MiniLM-L6-v2"
         )
 
     def chunk_text_by_tokens(self, text, max_tokens=256):
